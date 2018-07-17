@@ -24,7 +24,7 @@ FullMetalEngine depends on the following libraries:
 - [SOIL](https://www.lonesock.net/soil.html) - super old library for image loading.
 
 You may download them and compile them yourself, or you can use the pre-compiled (windows) binaries. 
-
+I will make a proper CMake file for it soon. Currently I just place all the dependecies in one folder, and have an enviromental variable called "Third_Party" pointing at it. It's still quite a mess, so I advise you guys to wait until I sort it out. 
 
 ## Development
 Want to contribute? Great! Send me 6-pack of diet coke :)
