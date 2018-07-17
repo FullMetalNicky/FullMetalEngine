@@ -1,12 +1,18 @@
 # FullMetalEngine
 
-FullMetalEngine is a wannabe game engine. Currently it contains a basic implementation of the rendering engine, and a simple physical simulation component. 
+FullMetalEngine is a wannabe game engine. Currently it contains a very basic implementation of a rendering engine, some utilities, and soon to come is a small physics simulation component. 
 The development of the engine started at mid 2017, and since then I lazily work on it on the weekends. 
 
 I tried to make it as cross-platform as possible. It was tested on Windows 10 and Ubuntu 16.04, but I can't really vouch for any other OS.
 
-## New Features!
-  - Hmm....
+## Future features!
+  - Lights!
+  - A real pipeline  
+  - Text rendering
+  - Widgets, if I'm really feeling masochistic 
+  - Physics simulation module 
+  - A project containing simple usage examples
+  
 ## Installation
 
 FullMetalEngine depends on the following libraries:
