@@ -30,7 +30,7 @@ You may download them and compile them yourself, or you can use the pre-compiled
 
 
 ## Development
-Want to contribute? Great!
+Want to contribute? Great! Send me 6-pack of diet coke :)
 
 ## License
 MIT, I think. But if you buy me a 6-pack of diet coke I won't complain. 
