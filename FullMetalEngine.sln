@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FMEApp", "FMEApp\FMEApp.vcxproj", "{FA17B683-1EEA-4CF0-9522-F455A7609926}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A} = {AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FMESimulation", "FMESimulation\FMESimulation.vcxproj", "{AD19AE25-6791-417F-A5BB-AD30B3A02E80}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FMEGraphics", "FMEGraphics\FMEGraphics.vcxproj", "{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FMEUtilities", "FMEUtilities\FMEUtilities.vcxproj", "{831A3A18-DFF2-45C8-B185-728BA535237E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FA17B683-1EEA-4CF0-9522-F455A7609926}.Debug|x64.ActiveCfg = Debug|x64
+		{FA17B683-1EEA-4CF0-9522-F455A7609926}.Debug|x64.Build.0 = Debug|x64
+		{FA17B683-1EEA-4CF0-9522-F455A7609926}.Release|x64.ActiveCfg = Release|x64
+		{FA17B683-1EEA-4CF0-9522-F455A7609926}.Release|x64.Build.0 = Release|x64
+		{AD19AE25-6791-417F-A5BB-AD30B3A02E80}.Debug|x64.ActiveCfg = Debug|x64
+		{AD19AE25-6791-417F-A5BB-AD30B3A02E80}.Debug|x64.Build.0 = Debug|x64
+		{AD19AE25-6791-417F-A5BB-AD30B3A02E80}.Release|x64.ActiveCfg = Release|x64
+		{AD19AE25-6791-417F-A5BB-AD30B3A02E80}.Release|x64.Build.0 = Release|x64
+		{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}.Debug|x64.ActiveCfg = Debug|x64
+		{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}.Debug|x64.Build.0 = Debug|x64
+		{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}.Release|x64.ActiveCfg = Release|x64
+		{AE5FA737-F68E-4E69-AFC5-B0A6CC017F2A}.Release|x64.Build.0 = Release|x64
+		{831A3A18-DFF2-45C8-B185-728BA535237E}.Debug|x64.ActiveCfg = Debug|x64
+		{831A3A18-DFF2-45C8-B185-728BA535237E}.Debug|x64.Build.0 = Debug|x64
+		{831A3A18-DFF2-45C8-B185-728BA535237E}.Release|x64.ActiveCfg = Release|x64
+		{831A3A18-DFF2-45C8-B185-728BA535237E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DAA40602-3BDE-4136-8C08-244D7149BC70}
+	EndGlobalSection
+EndGlobal
