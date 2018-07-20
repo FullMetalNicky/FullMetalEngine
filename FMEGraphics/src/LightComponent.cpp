@@ -18,3 +18,11 @@ void LightComponent::Draw()
 		m_lights[i]->Draw();
 	}
 }
+
+void LightComponent::SetShader(const std::string& shaderName)
+{
+	for (int i = 0; i < m_lights.size(); ++i)
+	{
+		m_lights[i]->SetShader(shaderName);
+	}
+}

@@ -19,3 +19,9 @@ std::shared_ptr<TransformComponent> IObject::GetTransformComponent()
 		}
 	}
 };
+
+void IObject::AddComponent(std::shared_ptr<IComponent> component)
+{
+
+}
+

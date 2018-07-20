@@ -36,7 +36,7 @@ namespace FME
 
 
 			Transform loadTransform(picojson::value transform);
-			void loadLights(picojson::value lights);
+			std::vector<std::shared_ptr<LightObject>> loadLights(picojson::value lights);
 			std::shared_ptr<LightObject> parseLights(picojson::value lights, const std::string& lightType);
 			glm::vec3 parseVec3(picojson::value vec);
 			glm::vec4 loadColor(picojson::value color);

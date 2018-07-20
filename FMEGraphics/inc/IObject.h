@@ -28,6 +28,8 @@ namespace FME
 			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return std::map<std::string, std::shared_ptr<IObject>>(); };
 			std::string GetName() const { return m_name; };
 
+			virtual void AddComponent(std::shared_ptr<IComponent> component);
+
 		protected:
 			
 			std::string m_name;

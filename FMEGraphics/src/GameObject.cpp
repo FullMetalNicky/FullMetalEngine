@@ -30,6 +30,10 @@ void GameObject::Draw()
 
 	FME::Graphics::ResourceManager::Instance()->GetShader(shader).Use();
 	glUniformMatrix4fv(glGetUniformLocation(FME::Graphics::ResourceManager::Instance()->GetShader(shader).GetProgramID(), "modelViewProj"), 1, GL_FALSE, glm::value_ptr(modelViewProj));
+	for (int i = 0; i < m_components.size(); ++i)
+	{
+		m_components[i]->Draw();
+	}
 	m_model->Draw();
 	FME::Graphics::ResourceManager::Instance()->GetShader(shader).UnUse();
 }

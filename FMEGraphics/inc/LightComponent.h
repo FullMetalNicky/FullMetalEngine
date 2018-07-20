@@ -17,6 +17,8 @@ namespace FME
 
 			LightComponent(const std::vector<std::shared_ptr<LightObject>>& lights);
 
+			void SetShader(const std::string& shaderName);
+
 			void Draw();
 
 			virtual ~LightComponent() {};

@@ -406,6 +406,7 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 		std::string modelType;
 		Transform trans;
 		bool fixed = false;
+		std::vector<std::shared_ptr<LightObject>> lights;
 
 		for (picojson::value::object::const_iterator it = arrObj.begin(); it != arrObj.end(); ++it)
 		{
@@ -431,42 +432,37 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 			{
 				modelType = it->second.to_str();
 			}
+			else if (it->first == "Light")
+			{
+				lights = loadLights(gameObject.get("Light"));
+			}
 		}
 		GameObject go(ResourceManager::Instance()->GetModel(modelName), goName);
 		if ("2D" == modelType) go.SetModelType(GameType::RENDER2D);
 		if (!fixed) go.GetTransformComponent()->SetTransform(trans);
 		else go.GetTransformComponent()->SetFixedTransform(trans);
+		if (lights.size())
+		{
+			LightComponent lc(lights);
+			lc.SetShader(ResourceManager::Instance()->GetModel(modelName)->GetShaderName());
+			go.AddComponent(std::make_shared<LightComponent>(lc));
+		}
 
 		return std::make_shared<GameObject>(go);
 }
 
-void SceneLoader::loadLights(picojson::value lightsVal)
+std::vector<std::shared_ptr<LightObject>> SceneLoader::loadLights(picojson::value lightsVal)
 {
 	std::vector<std::shared_ptr<LightObject>> lights;
 
 	picojson::value::object& lightsObj = lightsVal.get<picojson::object>();
 	for (picojson::value::object::const_iterator it = lightsObj.begin(); it != lightsObj.end(); ++it)
 	{
-		/*if (it->first == "DirectionalLight")
-		{
-			std::shared_ptr<LightObject> dirLight; // = loadDirectionalLights(it->second.to_str());
-			lights.push_back(dirLight);
-		}
-		if (it->first == "PointLight")
-		{
-			std::shared_ptr<LightObject> pointLight; // = loadPointLights(it->second.to_str());
-			lights.push_back(pointLight);
-		}
-		if (it->first == "SpotLight")
-		{
-			std::shared_ptr<LightObject> spotLight; // = loadSpotLights(it->second.to_str());
-			lights.push_back(spotLight);
-		}*/
-		std::shared_ptr<LightObject> lightObject = parseLights(lightsVal, it->first);
+		std::shared_ptr<LightObject> lightObject = parseLights(lightsVal.get(it->first), it->first);
 		lights.push_back(lightObject);
 	}
 
-	LightComponent lc(lights);
+	return lights;
 }
 
 std::shared_ptr<LightObject> SceneLoader::parseLights(picojson::value lightsVal, const std::string& lightType)
