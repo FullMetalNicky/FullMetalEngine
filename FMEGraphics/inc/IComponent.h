@@ -17,8 +17,9 @@ namespace FME
 
 			virtual ~IComponent() {};
 
-
 			virtual void Update() {};
+
+			virtual void Draw() {};
 
 			const std::string& GetType() const { return m_type; };
 

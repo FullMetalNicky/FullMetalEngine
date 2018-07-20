@@ -14,6 +14,7 @@
     <ClInclude Include="inc\BloomEffect.h" />
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\DecoderComponent.h" />
+    <ClInclude Include="inc\DirectionalLight.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\GameObject.h" />
     <ClInclude Include="inc\GeometryMesh.h" />
@@ -27,6 +28,9 @@
     <ClInclude Include="inc\InputManager.h" />
     <ClInclude Include="inc\IObject.h" />
     <ClInclude Include="inc\ITexture.h" />
+    <ClInclude Include="inc\LightComponent.h" />
+    <ClInclude Include="inc\LightObject.h" />
+    <ClInclude Include="inc\LightStructs.h" />
     <ClInclude Include="inc\NoEffect.h" />
     <ClInclude Include="inc\OBJMesh.h" />
     <ClInclude Include="inc\OBJModel.h" />
@@ -46,6 +50,7 @@
     <ClCompile Include="src\BloomEffect.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\DecoderComponent.cpp" />
+    <ClCompile Include="src\DirectionalLight.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GeometryMesh.cpp" />
@@ -56,6 +61,8 @@
     <ClCompile Include="src\IModel.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
     <ClCompile Include="src\IObject.cpp" />
+    <ClCompile Include="src\LightComponent.cpp" />
+    <ClCompile Include="src\LightObject.cpp" />
     <ClCompile Include="src\NoEffect.cpp" />
     <ClCompile Include="src\OBJMesh.cpp" />
     <ClCompile Include="src\OBJModel.cpp" />
