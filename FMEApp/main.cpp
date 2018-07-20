@@ -115,7 +115,7 @@ void app1()
 	double deltaTime = 0.0;
 	double lastFrame = 0.0;
 
-	std::thread thready(SkyBoxLoader);
+//	std::thread thready(SkyBoxLoader);
 
 	while(FME::Graphics::Engine::Instance()->Alive())
 	{
@@ -127,7 +127,7 @@ void app1()
 		FME::Graphics::Engine::Instance()->Draw();
 	}
 
-	thready.join();
+	//thready.join();
 }
 
 

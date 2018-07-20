@@ -33,7 +33,7 @@ void SpotLight::Draw()
 
 std::string SpotLight::parseShaderParam(const std::string& paramName, int index)
 {
-	std::string parsedName = "spotLights.[" + std::to_string(index) + "]" + paramName;
+	std::string parsedName = "spotLights[" + std::to_string(index) + "]." + paramName;
 
 	return parsedName;
 }

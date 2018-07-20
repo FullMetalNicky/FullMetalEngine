@@ -31,6 +31,8 @@ namespace FME
 				void SetPOI(const glm::vec3& POI) { m_camPOI = POI; };
 				void ResetCamera();
 
+				glm::vec3 GetPosition() const { return m_camPos; };
+
 				glm::mat4 GetViewMatrix() const { return m_view; };
 
 			private:

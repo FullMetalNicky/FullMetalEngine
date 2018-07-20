@@ -31,7 +31,7 @@ void PointLight::Draw()
 
 std::string PointLight::parseShaderParam(const std::string& paramName, int index)
 {
-	std::string parsedName = "pointLights.[" + std::to_string(index) + "]" + paramName;
+	std::string parsedName = "pointLights[" + std::to_string(index) + "]." + paramName;
 
 	return parsedName;
 }

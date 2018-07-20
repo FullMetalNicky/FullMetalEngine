@@ -44,6 +44,7 @@ namespace FME
 
 			void SetCameraPresets(std::vector<std::pair<glm::vec3, glm::vec3>> cameraPresets) { m_cameraPresets = cameraPresets; };
 			void GetCamera(glm::mat4& view, glm::mat4& proj) const ;
+			glm::vec3 GetCameraPosition() const {return m_camera->GetPosition(); };
 
 			void PushFrame(const std::vector<unsigned char*>& image, int width, int height, bool alpha = false, int frameNum = -1);
 

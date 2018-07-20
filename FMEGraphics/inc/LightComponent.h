@@ -25,6 +25,7 @@ namespace FME
 
 		private:
 
+			std::string m_shaderName;
 			std::vector<std::shared_ptr<LightObject>> m_lights;
 		};
 	}
