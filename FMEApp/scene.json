@@ -1,0 +1,344 @@
+{
+  "Assets": {
+    "Models": {
+      "OBJ": [
+        {
+          "Path": "D:/Dev/Data/Models/Camaro/obj/camaro_body.obj",
+          "Name": "camaro_body"
+        },
+        {
+          "Path": "D:/Dev/Data/Models/Camaro/obj/camaro_wheel.obj",
+          "Name": "camaro_wheel"
+        }
+      ],
+      "Geometry": [
+        {
+          "Type": "Plane",
+          "Texture": "parking",
+          "Name": "parkingPlane"
+        },
+        {
+          "Type": "Plane",
+          "Texture": "video",
+          "Name": "videoPlane"
+        },
+        {
+          "Type": "Plane",
+          "Color": {
+            "r": "15.0",
+            "g": "0.0",
+            "b": "0.0",
+            "a": "0.7"
+          },
+          "Name": "collisionPlane"
+        }
+      ],
+      "Skybox": [
+        {
+          "Texture": "skybox",
+          "Name": "roundabout"
+        }
+      ]
+    },
+    "Textures": [
+      {
+        "Path": "D:/Dev/Data/parking.jpg",
+        "Type": "2D",
+        "Name": "parking"
+      },
+      {
+        "Path": "",
+        "Width": "1920",
+        "Height": "1080",
+        "Type": "2D",
+        "Name": "video"
+      },
+      {
+        "Path": "D:/Dev/Data/wood.jpg",
+        "Type": "2D",
+        "Name": "wood"
+      },
+      {
+        "Path": "D:/Dev/Data/video/skybox/Movies/Angle0New/Frame0/",
+        "Type": "3D",
+        "Name": "skybox"
+      }
+    ],
+    "Shaders": [
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/Shaders/plane",
+        "Name": "plane"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/Shaders/cube",
+        "Name": "cube"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEApp/Shaders/shader",
+        "Name": "simple"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/obj",
+        "Name": "obj"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/skybox",
+        "Name": "skybox"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/NoEffect",
+        "Name": "NoEffect"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/guassian",
+        "Name": "guassian"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/HPF",
+        "Name": "HPF"
+      },
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/BloomEffect",
+        "Name": "BloomEffect"
+      }
+    ]
+  },
+  "Levels": [
+    {
+      "Camera": {
+        "Position": {
+          "x": "0.0",
+          "y": "12.0",
+          "z": "0.0"
+        },
+        "POI": {
+          "x": "0.0",
+          "y": "4.0",
+          "z": "15.0"
+        }
+      },
+      "GroupObjects": [
+        {
+          "Name": "Car",
+          "FixedTransform": "true",
+          "Transform": {
+            "x": "0.0",
+            "y": "0.0",
+            "z": "6.0",
+            "ry": "0.0",
+            "sx": "3.0",
+            "sy": "3.0",
+            "sz": "3.0"
+          },
+          "GameObjects": [
+            {
+              "Light": {
+                "DirectionalLight": [
+                  {
+                    "direction": {
+                      "x": "0.0",
+                      "y": "10.0",
+                      "z": "0.0"
+                    },
+                    "ambient": {
+                      "r": "1.0",
+                      "g": "1.0",
+                      "b": "1.0"
+                    },
+                    "diffuse": {
+                      "r": "0.4",
+                      "g": "0.4",
+                      "b": "0.4"
+                    },
+                    "specular": {
+                      "r": "0.5",
+                      "g": "0.5",
+                      "b": "0.5"
+                    }
+                  }
+                ]
+              },
+              "Model": "camaro_body",
+              "FixedTransform": "true",
+              "Name": "camaro_body",
+              "Transform": {
+                "x": "0.0",
+                "y": "0.0",
+                "z": "0.0"
+              }
+            },
+            {
+              "Model": "camaro_wheel",
+              "Name": "camaro_wheel_left_front",
+              "FixedTransform": "false",
+              "Transform": {
+                "x": "1.1375",
+                "y": "0.484563",
+                "z": "2.2103"
+              }
+            },
+            {
+              "Model": "camaro_wheel",
+              "Name": "camaro_wheel_right_front",
+              "FixedTransform": "false",
+              "Transform": {
+                "x": "-1.1375",
+                "y": "0.484563",
+                "z": "2.2103",
+                "ry": "180.0"
+              }
+            },
+            {
+              "Model": "camaro_wheel",
+              "Name": "camaro_wheel_left_rear",
+              "FixedTransform": "true",
+              "Transform": {
+                "x": "1.1375",
+                "y": "0.484563",
+                "z": "-1.5997"
+              }
+            },
+            {
+              "Model": "camaro_wheel",
+              "Name": "camaro_wheel_right_rear",
+              "FixedTransform": "true",
+              "Transform": {
+                "x": "-1.1375",
+                "y": "0.484563",
+                "z": "-1.5997",
+                "ry": "180.0"
+              }
+            }
+          ]
+        }
+      ],
+      "GameObjects": [
+        {
+          "Model": "roundabout",
+          "FixedTransform": "true",
+          "Name": "roundabout",
+          "Transform": {
+            "x": "0.0",
+            "y": "9.5",
+            "z": "0.0",
+            "sx": "20.0",
+            "sy": "20.0",
+            "sz": "20.0"
+          }
+        }
+      ]
+    },
+    {
+      "Camera": {
+        "Position": {
+          "x": "0.0",
+          "y": "8.0",
+          "z": "0.01"
+        },
+        "POI": {
+          "x": "0.0",
+          "y": "0.0",
+          "z": "0.0"
+        }
+      },
+      "GameObjects": [
+        {
+          "Model": "parkingPlane",
+          "Name": "parkingPlane",
+          "FixedTransform": "true",
+          "Transform": {
+            "x": "0.0",
+            "y": "0.0",
+            "z": "0.0",
+            "rx": "-90.0",
+            "sx": "2.5",
+            "sy": "5.0",
+            "sz": "1.0"
+          }
+        },
+        {
+          "Model": "camaro_body",
+          "FixedTransform": "true",
+          "Name": "camaro_body",
+          "Transform": {
+            "x": "0.0",
+            "y": "0.0",
+            "z": "0.0"
+          }
+        },
+        {
+          "Model": "camaro_wheel",
+          "Name": "camaro_wheel_left_front",
+          "FixedTransform": "false",
+          "Transform": {
+            "x": "1.1375",
+            "y": "0.484563",
+            "z": "2.2103"
+          }
+        },
+        {
+          "Model": "camaro_wheel",
+          "Name": "camaro_wheel_right_front",
+          "FixedTransform": "false",
+          "Transform": {
+            "x": "-1.1375",
+            "y": "0.484563",
+            "z": "2.2103",
+            "ry": "180.0"
+          }
+        },
+        {
+          "Model": "camaro_wheel",
+          "Name": "camaro_wheel_left_rear",
+          "FixedTransform": "true",
+          "Transform": {
+            "x": "1.1375",
+            "y": "0.484563",
+            "z": "-1.5997"
+          }
+        },
+        {
+          "Model": "camaro_wheel",
+          "Name": "camaro_wheel_right_rear",
+          "FixedTransform": "true",
+          "Transform": {
+            "x": "-1.1375",
+            "y": "0.484563",
+            "z": "-1.5997",
+            "ry": "180.0"
+          }
+        }
+      ]
+    },
+    {
+      "Camera": {
+        "Position": {
+          "x": "5.0",
+          "y": "10.0",
+          "z": "10.0"
+        },
+        "POI": {
+          "x": "0.0",
+          "y": "0.0",
+          "z": "0.0"
+        }
+      },
+      "GameObjects": [
+        {
+          "Model": "videoPlane",
+          "FixedTransform": "true",
+          "Name": "videoPlane",
+          "Type": "2D",
+          "Transform": {
+            "x": "0.0",
+            "y": "0.0",
+            "z": "0.0",
+            "sx": "1.0",
+            "sy": "1.0",
+            "sz": "1.0"
+          }
+        }
+      ]
+    }
+  ]
+}
