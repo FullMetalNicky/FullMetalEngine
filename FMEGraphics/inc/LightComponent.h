@@ -3,7 +3,6 @@
 
 
 #include "IComponent.h"
-#include "LightStructs.h"
 #include "LightObject.h"
 #include <GL/glew.h>
 

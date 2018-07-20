@@ -2,8 +2,12 @@
 
 using namespace FME::Graphics;
 
-LightObject::LightObject(const std::string& shaderName)
+LightObject::LightObject()
+{
+	
+}
+
+void LightObject::SetShader(const std::string& shaderName)
 {
 	m_shaderName = shaderName;
 }
-

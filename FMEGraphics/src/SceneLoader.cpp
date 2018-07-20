@@ -11,6 +11,12 @@
 #include "GameObject.h"
 #include "GroupObject.h"
 #include "Engine.h"
+#include "LightComponent.h"
+#include "LightObject.h"
+#include "DirectionalLight.h"
+#include "PointLight.h"
+#include "SpotLight.h"
+
 
 #ifdef _DEBUG
 #define DEBUG 1
@@ -432,6 +438,145 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 		else go.GetTransformComponent()->SetFixedTransform(trans);
 
 		return std::make_shared<GameObject>(go);
+}
+
+void SceneLoader::loadLights(picojson::value lightsVal)
+{
+	std::vector<std::shared_ptr<LightObject>> lights;
+
+	picojson::value::object& lightsObj = lightsVal.get<picojson::object>();
+	for (picojson::value::object::const_iterator it = lightsObj.begin(); it != lightsObj.end(); ++it)
+	{
+		/*if (it->first == "DirectionalLight")
+		{
+			std::shared_ptr<LightObject> dirLight; // = loadDirectionalLights(it->second.to_str());
+			lights.push_back(dirLight);
+		}
+		if (it->first == "PointLight")
+		{
+			std::shared_ptr<LightObject> pointLight; // = loadPointLights(it->second.to_str());
+			lights.push_back(pointLight);
+		}
+		if (it->first == "SpotLight")
+		{
+			std::shared_ptr<LightObject> spotLight; // = loadSpotLights(it->second.to_str());
+			lights.push_back(spotLight);
+		}*/
+		std::shared_ptr<LightObject> lightObject = parseLights(lightsVal, it->first);
+		lights.push_back(lightObject);
+	}
+
+	LightComponent lc(lights);
+}
+
+std::shared_ptr<LightObject> SceneLoader::parseLights(picojson::value lightsVal, const std::string& lightType)
+{
+	std::vector<LightInfo> lightInfoVec;
+	std::shared_ptr<LightObject> lightObject;
+
+	picojson::array lightsArr = lightsVal.get<picojson::array>();
+	for (int i = 0; i < lightsArr.size(); ++i)
+	{
+		LightInfo lightInfo;
+		picojson::value::object& lightObj = lightsArr[i].get<picojson::object>();
+		for (picojson::value::object::const_iterator it = lightObj.begin(); it != lightObj.end(); ++it)
+		{
+			if (it->first == "direction")
+			{
+				lightInfo.direction = parseVec3(lightsArr[i].get("direction"));
+			}
+			if (it->first == "position")
+			{
+				lightInfo.position = parseVec3(lightsArr[i].get("position"));
+			}
+			if (it->first == "ambient")
+			{
+				lightInfo.ambient = parseVec3(lightsArr[i].get("ambient"));
+			}
+			if (it->first == "diffuse")
+			{
+				lightInfo.diffuse = parseVec3(lightsArr[i].get("diffuse"));
+			}
+			if (it->first == "specular")
+			{
+				lightInfo.specular = parseVec3(lightsArr[i].get("specular"));
+			}
+			if (it->first == "cutOff")
+			{
+				lightInfo.cutOff = std::stof(it->second.to_str());
+			}
+			if (it->first == "outerCutOff")
+			{
+				lightInfo.outerCutOff = std::stof(it->second.to_str());
+			}
+			if (it->first == "constant")
+			{
+				lightInfo.constant = std::stof(it->second.to_str());
+			}
+			if (it->first == "linear")
+			{
+				lightInfo.linear = std::stof(it->second.to_str());
+			}
+			if (it->first == "quadratic")
+			{
+				lightInfo.quadratic = std::stof(it->second.to_str());
+			}
+		}
+		lightInfoVec.push_back(lightInfo);
+	}
+
+	if (lightType == "DirectionalLight")
+	{
+		DirectionalLight dl(lightInfoVec);
+		lightObject = std::make_shared<DirectionalLight>(dl);
+	}
+	if (lightType == "SpotLight")
+	{
+		SpotLight sp(lightInfoVec);
+		lightObject = std::make_shared<SpotLight>(sp);
+	}
+	if (lightType == "PointLight")
+	{
+		PointLight pl(lightInfoVec);
+		lightObject = std::make_shared<PointLight>(pl);
+	}
+
+	return lightObject;
+}
+
+glm::vec3 SceneLoader::parseVec3(picojson::value vec)
+{
+	glm::vec3 parsedVec;
+	picojson::value::object& vecsObj = vec.get<picojson::object>();
+	for (picojson::value::object::const_iterator it = vecsObj.begin(); it != vecsObj.end(); ++it)
+	{
+		if (it->first == "x")
+		{
+			parsedVec.x = std::stof(it->second.to_str());
+		}
+		if (it->first == "y")
+		{
+			parsedVec.y = std::stof(it->second.to_str());
+		}
+		if (it->first == "z")
+		{
+			parsedVec.z = std::stof(it->second.to_str());
+		}
+		if (it->first == "r")
+		{
+			parsedVec.x = std::stof(it->second.to_str());
+		}
+		if (it->first == "g")
+		{
+			parsedVec.y = std::stof(it->second.to_str());
+		}
+		if (it->first == "b")
+		{
+			parsedVec.z = std::stof(it->second.to_str());
+		}
+	}
+
+	return parsedVec;
 }
 
 

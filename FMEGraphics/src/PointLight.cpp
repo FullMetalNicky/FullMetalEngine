@@ -6,7 +6,7 @@
 using namespace FME::Graphics;
 
 
-PointLight::PointLight(const std::string& shaderName, const std::vector<PointLightInfo>& lightsInfo) : LightObject(shaderName)
+PointLight::PointLight(const std::vector<LightInfo>& lightsInfo)
 {
 	m_pointLightsInfo = lightsInfo;
 }

@@ -8,20 +8,10 @@ namespace FME
 {
 	namespace Graphics
 	{
-		struct PointLightInfo {
-			glm::vec3 position;
-			float constant;
-			float linear;
-			float quadratic;
-			glm::vec3 ambient;
-			glm::vec3 diffuse;
-			glm::vec3 specular;
-		};
-
 		class PointLight : public LightObject
 		{
 		public:
-			PointLight(const std::string& shaderName, const std::vector<PointLightInfo>& lightsInfo);
+			PointLight(const std::vector<LightInfo>& lightsInfo);
 
 			virtual void Draw();
 
@@ -32,9 +22,7 @@ namespace FME
 		private:
 
 			std::string parseShaderParam(const std::string& paramName, int index);
-
-			std::string m_shaderName;
-			std::vector<PointLightInfo> m_pointLightsInfo;
+			std::vector<LightInfo> m_pointLightsInfo;
 		};
 	}
 }

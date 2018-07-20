@@ -30,7 +30,6 @@
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\LightComponent.h" />
     <ClInclude Include="inc\LightObject.h" />
-    <ClInclude Include="inc\LightStructs.h" />
     <ClInclude Include="inc\NoEffect.h" />
     <ClInclude Include="inc\OBJMesh.h" />
     <ClInclude Include="inc\OBJModel.h" />

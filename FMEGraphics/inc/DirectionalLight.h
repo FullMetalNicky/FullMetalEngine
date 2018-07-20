@@ -8,17 +8,10 @@ namespace FME
 {
 	namespace Graphics
 	{
-		struct DirLightInfo {
-			glm::vec3 direction;
-			glm::vec3 ambient;
-			glm::vec3 diffuse;
-			glm::vec3 specular;
-		};
-
 		class DirectionalLight : public LightObject
 		{
 		public:
-			DirectionalLight(const std::string& shaderName, const std::vector<DirLightInfo>& lightsInfo);
+			DirectionalLight(const std::vector<LightInfo>& lightsInfo);
 
 			virtual void Draw();
 
@@ -29,9 +22,7 @@ namespace FME
 		private:
 
 			std::string parseShaderParam(const std::string& paramName, int index);
-
-			std::string m_shaderName;
-			std::vector<DirLightInfo> m_dirLightsInfo;
+			std::vector<LightInfo> m_dirLightsInfo;
 		};
 	}
 }

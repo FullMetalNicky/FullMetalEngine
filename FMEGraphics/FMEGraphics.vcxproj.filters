@@ -111,9 +111,6 @@
     <ClInclude Include="inc\LightComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\LightStructs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\LightObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>

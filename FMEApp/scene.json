@@ -89,15 +89,15 @@
         "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/NoEffect",
         "Name": "NoEffect"
       },
-	  {
+      {
         "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/guassian",
         "Name": "guassian"
       },
-	  {
+      {
         "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/HPF",
         "Name": "HPF"
       },
-	  {
+      {
         "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEGraphics/shaders/BloomEffect",
         "Name": "BloomEffect"
       }
@@ -132,6 +132,32 @@
           },
           "GameObjects": [
             {
+              "Light": {
+                "DirectionalLight": [
+                  {
+                    "direction": {
+                      "x": "0.0",
+                      "y": "10.0",
+                      "z": "0.0"
+                    },
+                    "ambient": {
+                      "r": "1.0",
+                      "g": "1.0",
+                      "b": "1.0"
+                    },
+                    "diffuse": {
+                      "r": "0.3",
+                      "g": "0.3",
+                      "b": "0.3"
+                    },
+                    "specular": {
+                      "r": "0.1",
+                      "g": "0.1",
+                      "b": "0.1"
+                    }
+                  }
+                ]
+              },
               "Model": "camaro_body",
               "FixedTransform": "true",
               "Name": "camaro_body",

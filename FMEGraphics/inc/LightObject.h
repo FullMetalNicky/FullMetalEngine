@@ -8,10 +8,24 @@ namespace FME
 {
 	namespace Graphics
 	{
+		struct LightInfo {
+			glm::vec3 position;
+			glm::vec3 direction;
+			float cutOff;
+			float outerCutOff;
+			float constant;
+			float linear;
+			float quadratic;
+			glm::vec3 ambient;
+			glm::vec3 diffuse;
+			glm::vec3 specular;
+		};
+
+
 		class LightObject : public IObject
 		{
 		public:
-			LightObject(const std::string& shaderName);
+			LightObject();
 
 			virtual void Draw() = 0;
 
@@ -19,7 +33,9 @@ namespace FME
 
 			virtual ~LightObject() {};
 
-		private:
+			void SetShader(const std::string& shaderName);
+
+		protected:
 
 			std::string m_shaderName;
 		};

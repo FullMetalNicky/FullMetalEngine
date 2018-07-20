@@ -6,7 +6,7 @@
 using namespace FME::Graphics;
 
 
-DirectionalLight::DirectionalLight(const std::string& shaderName, const std::vector<DirLightInfo>& lightsInfo) : LightObject(shaderName)
+DirectionalLight::DirectionalLight(const std::vector<LightInfo>& lightsInfo)
 {
 	m_dirLightsInfo = lightsInfo;
 }

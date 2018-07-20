@@ -6,7 +6,7 @@
 using namespace FME::Graphics;
 
 
-SpotLight::SpotLight(const std::string& shaderName, const std::vector<SpotLightInfo>& lightsInfo) : LightObject(shaderName)
+SpotLight::SpotLight(const std::vector<LightInfo>& lightsInfo)
 {
 	m_spotLightsInfo = lightsInfo;
 }

@@ -5,6 +5,7 @@
 #include "picojson.h"
 #include "IObject.h"
 #include "GameObject.h"
+#include "LightObject.h"
 #include <memory>
 
 namespace FME
@@ -35,6 +36,9 @@ namespace FME
 
 
 			Transform loadTransform(picojson::value transform);
+			void loadLights(picojson::value lights);
+			std::shared_ptr<LightObject> parseLights(picojson::value lights, const std::string& lightType);
+			glm::vec3 parseVec3(picojson::value vec);
 			glm::vec4 loadColor(picojson::value color);
 			void loadCamera(picojson::value camera, glm::vec3& position, glm::vec3& POI);
 			void parseCameraPreset(picojson::value posVal, picojson::value POIVal, glm::vec3& position, glm::vec3& POI);

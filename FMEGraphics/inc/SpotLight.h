@@ -8,23 +8,10 @@ namespace FME
 {
 	namespace Graphics
 	{
-		struct SpotLightInfo {
-			glm::vec3 position;
-			glm::vec3 direction;
-			float cutOff;
-			float outerCutOff;
-			float constant;
-			float linear;
-			float quadratic;
-			glm::vec3 ambient;
-			glm::vec3 diffuse;
-			glm::vec3 specular;
-		};
-
 		class SpotLight : public LightObject
 		{
 		public:
-			SpotLight(const std::string& shaderName, const std::vector<SpotLightInfo>& lightsInfo);
+			SpotLight(const std::vector<LightInfo>& lightsInfo);
 
 			virtual void Draw();
 
@@ -35,9 +22,7 @@ namespace FME
 		private:
 
 			std::string parseShaderParam(const std::string& paramName, int index);
-
-			std::string m_shaderName;
-			std::vector<SpotLightInfo> m_spotLightsInfo;
+			std::vector<LightInfo> m_spotLightsInfo;
 		};
 	}
 }
