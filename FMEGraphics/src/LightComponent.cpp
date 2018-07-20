@@ -1,5 +1,4 @@
 #include "LightComponent.h"
-#include "ResourceManager.h"
 
 using namespace FME::Graphics;
 

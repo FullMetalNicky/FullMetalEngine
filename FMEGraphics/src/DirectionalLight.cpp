@@ -27,7 +27,7 @@ void DirectionalLight::Draw()
 
 std::string DirectionalLight::parseShaderParam(const std::string& paramName, int index)
 {
-	std::string paramName = "dirLights.[" + std::to_string(index) + "]" + paramName;
+	std::string parsedName = "dirLights.[" + std::to_string(index) + "]" + paramName;
 
-	return paramName;
+	return parsedName;
 }
