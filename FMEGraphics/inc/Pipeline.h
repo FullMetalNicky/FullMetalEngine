@@ -2,8 +2,7 @@
 #define PIPELINE_H_
 
 #include "IEffect.h"
-#include "IModel.h"
-
+#include <map>
 
 namespace FME
 {
@@ -17,15 +16,21 @@ namespace FME
 		{
 		public:
 			Pipeline();
-			~Pipeline();
+			virtual~Pipeline();
 
-			void Update();
-			void Draw();
+			virtual void Update();
+			virtual void RenderToScreen();
+			virtual void RenderStart(const std::string& currentEffectName);
+			virtual void RenderEnd();
+			virtual void ClearScreen();
+
+			void AddEffect(std::shared_ptr<IEffect> effect, const std::string& effectName);
 
 
-		private:
+		protected:
 
-			std::vector<std::shared_ptr<IEffect>> m_effects;
+			std::string m_currentEffect;
+			std::map<std::string, std::shared_ptr<IEffect>> m_effects;
 		};
 	}
 }
