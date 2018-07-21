@@ -19,7 +19,7 @@ Huge props to this [guy](https://learnopengl.com/), who taught me most of what I
 It migh not be 100% up-to-date with all changes, but it should give you a clue about how stuff work in my twisted mind. Loading scenes can be done using a .json file, using the format you may find in scene.json. Right now behaviors are pretty much hard-coded, but I intend to extend it to user-provided callbacks or scripts. 
   
 ## Installation
-
+ 
 FullMetalEngine depends on the following libraries:
 
 - [Assimp](http://www.assimp.org/) - An asset loading library
