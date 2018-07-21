@@ -435,7 +435,7 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 		std::string modelName;
 		std::string goName;
 		std::string modelType;
-		Transform trans;
+		Transform trans{ glm::vec3(0.0f), glm::vec3(0.0f), glm::vec3(1.0f) };
 		bool fixed = false;
 		std::vector<std::shared_ptr<LightObject>> lights;
 
