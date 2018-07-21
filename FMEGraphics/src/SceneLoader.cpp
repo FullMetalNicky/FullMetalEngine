@@ -16,6 +16,7 @@
 #include "DirectionalLight.h"
 #include "PointLight.h"
 #include "SpotLight.h"
+#include <experimental/filesystem>
 
 
 #ifdef _DEBUG
@@ -61,6 +62,7 @@ SceneLoader::SceneLoader(const std::string& JSONPath) //called only once in the 
 
 void SceneLoader::LoadAssets()
 {
+	std::string libraryPath;
 	picojson::value::object& rootObj = m_root.get<picojson::object>();
 	if (m_root.contains("Assets"))
 	{
@@ -80,7 +82,36 @@ void SceneLoader::LoadAssets()
 			picojson::value models = assets.get("Models");
 			loadModels(models);
 		}
+		if (assets.contains("LibraryPath"))
+		{
+			picojson::value libPathVal = assets.get("LibraryPath");
+			std::string libraryPath = libPathVal.get<std::string>();
+			loadEngineShaders(libraryPath + "/FMEGraphics/shaders/");
+		}
 	}	
+}
+
+void SceneLoader::loadEngineShaders(const std::string& libraryPath)
+{
+	std::map<std::string, std::string> shaderNames;
+	std::pair<std::map<std::string, std::string>::iterator, bool> ret;
+
+	std::experimental::filesystem::directory_iterator path_it(libraryPath);
+	std::experimental::filesystem::directory_iterator end_it;
+
+	while (path_it != end_it)
+	{
+		std::string shaderPath = path_it->path().string();
+		std::string shaderName = path_it->path().filename().string();
+		shaderName = shaderName.substr(0, shaderName.find_last_of('.'));
+		ret = shaderNames.insert(std::pair<std::string, std::string>(shaderName, shaderPath));
+		if (true == ret.second)
+		{
+			ResourceManager::Instance()->LoadShader(std::string(libraryPath + shaderName + ".vert").c_str(), std::string(libraryPath + shaderName + ".frag").c_str(), nullptr, shaderName);
+		}
+
+		++path_it;
+	}
 }
 
 void SceneLoader::loadShaders(picojson::value shaders)

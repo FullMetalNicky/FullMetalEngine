@@ -4,19 +4,22 @@ FullMetalEngine is a wannabe game engine in its early infancy phase. Currently i
 Huge props to this [guy](https://learnopengl.com/), who taught me most of what I know about OpenGL and inspired me when writing this engine. 
 
 ## Future features!
-  - Lights!
+  - Shadow rendering? Hmm...maybe.
   - A real pipeline  
   - Text rendering
   - Widgets, if I'm really feeling masochistic 
   - Physics simulation module 
   - A project containing simple usage examples
   
+## New Features!
+  - Lights are now available for the obj shaders. I'm not sure about adding support for the other shaders because they simply render         geometric objects, but if anyone complains I will fix it.
+  
 ## Implementation
 ![Engine UML](https://www.dropbox.com/s/fcrkp7m6zitiiu9/UML.JPG?raw=1)
 It migh not be 100% up-to-date with all changes, but it should give you a clue about how stuff work in my twisted mind. Loading scenes can be done using a .json file, using the format you may find in scene.json. Right now behaviors are pretty much hard-coded, but I intend to extend it to user-provided callbacks or scripts. 
   
 ## Installation
-
+ 
 FullMetalEngine depends on the following libraries:
 
 - [Assimp](http://www.assimp.org/) - An asset loading library

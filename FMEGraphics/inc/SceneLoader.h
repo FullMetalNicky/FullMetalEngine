@@ -42,6 +42,7 @@ namespace FME
 			glm::vec4 loadColor(picojson::value color);
 			void loadCamera(picojson::value camera, glm::vec3& position, glm::vec3& POI);
 			void parseCameraPreset(picojson::value posVal, picojson::value POIVal, glm::vec3& position, glm::vec3& POI);
+			void loadEngineShaders(const std::string& libraryPath);
 
 
 			picojson::value m_root;
