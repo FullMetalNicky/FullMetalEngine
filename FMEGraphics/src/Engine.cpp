@@ -223,15 +223,21 @@ void Engine::updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>>
 void Engine::Draw()  //render start, draw scene, render end, app draw
 {
 	//FPS stuff?
-	m_node->RenderStart();	 	
+	/*m_node->RenderStart();	 	
 	m_scene->Draw();
 	m_node->RenderEnd();
-	m_node->RenderToScreen();
+	m_node->RenderToScreen();*/
 
 	/*m_bloomNode->RenderStart();
 	m_scene->Draw();
 	m_bloomNode->RenderEnd();
 	m_bloomNode->RenderToScreen();*/
+
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glEnable(GL_DEPTH_TEST);					
+	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	m_scene->Draw();
 
 	m_app->Draw();
 }

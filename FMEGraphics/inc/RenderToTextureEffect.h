@@ -1,5 +1,5 @@
-#ifndef NOEFFECT_H_
-#define NOEFFECT_H_
+#ifndef RENDERTOTEXTUREEFFECT_H_
+#define RENDERTOTEXTUREEFFECT_H_
 
 #include "IEffect.h"
 
@@ -8,7 +8,7 @@ namespace FME
 	namespace Graphics
 	{
 		/** \class RenderToTextureEffect
-		*  \brief A class for simple, no effect rendering. Can render to texture, or to screen. 
+		*  \brief A class for simple texture rendering. Can output the texture to the screen too.
 		*/
 
 		class RenderToTextureEffect : public IEffect
