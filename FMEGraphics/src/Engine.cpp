@@ -136,9 +136,9 @@ void Engine::updateCamera(std::vector<bool> keys, double deltaTime)
 		xoffset = (bool(keys[GLFW_KEY_KP_6]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_4]) * deltaTime * sensitivity);
 		yoffset = bool(keys[GLFW_KEY_KP_2]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_8]) * deltaTime * sensitivity;
 		zoffset = bool(keys[GLFW_KEY_KP_ADD]) * 0.5f - bool(keys[GLFW_KEY_KP_SUBTRACT]) * 0.5f;
-	//	m_camera->PanTumble(xoffset, yoffset);
+		m_camera->PanTumble(xoffset, yoffset);
 		m_camera->Zoom(zoffset);
-		m_camera->Rotate(xoffset, yoffset);
+	//	m_camera->Rotate(xoffset, yoffset);
 	}
 	if (keys['0'])
 	{
