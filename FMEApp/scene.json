@@ -89,6 +89,15 @@
             "sx": "3.0", "sy": "3.0", "sz": "3.0"
           },
           "GameObjects": [
+		  {
+              "Model": "collisionPlane",
+              "Name": "collisionPlane",
+              "FixedTransform": "true",
+              "Transform": {
+                "x": "0.0", "y": "0.0", "z": "18.0",
+				"sx": "8.0", "sy": "8.0", "sz": "3.0"
+              }
+            },
             {
               "Light": {
                 "DirectionalLight": [

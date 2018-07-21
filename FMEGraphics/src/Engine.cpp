@@ -223,7 +223,11 @@ void Engine::updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>>
 void Engine::Draw()  //render start, draw scene, render end, app draw
 {
 	m_pipeline->ClearScreen();
+	
+	m_pipeline->RenderStart("BloomEffect");
 	m_scene->Draw();	
+	m_pipeline->RenderEnd();
+	m_pipeline->RenderToScreen();
 
 	m_app->Draw();
 }
