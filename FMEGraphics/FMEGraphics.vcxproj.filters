@@ -39,9 +39,6 @@
     <ClInclude Include="inc\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\NoEffect.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\ICamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -123,6 +120,9 @@
     <ClInclude Include="inc\SpotLight.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\RenderToTextureEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -144,9 +144,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\NoEffect.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\IModel.cpp">
@@ -224,14 +221,11 @@
     <ClCompile Include="src\DirectionalLight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\RenderToTextureEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\NoEffect.frag">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="shaders\NoEffect.vert">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="shaders\obj.frag">
       <Filter>shaders</Filter>
     </None>
@@ -272,6 +266,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\HPF.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\RenderToTextureEffect.frag">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\RenderToTextureEffect.vert">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

@@ -1,4 +1,4 @@
-#include "NoEffect.h"
+#include "RenderToTextureEffect.h"
 #include <iostream>
 #include "ResourceManager.h"
 
@@ -6,18 +6,18 @@
 using namespace FME::Graphics;
 
 
-NoEffect::NoEffect(glm::ivec2 screenSize) : IEffect()
+RenderToTextureEffect::RenderToTextureEffect(glm::ivec2 screenSize) : IEffect()
 {
-	m_screenShaderName = "NoEffect";
-	ResourceManager::Instance()->LoadShader("../FMEGraphics/shaders/NoEffect.vert", "../FMEGraphics/shaders/NoEffect.frag", nullptr, m_screenShaderName);
+	m_screenShaderName = "RenderToTextureEffect";
+	ResourceManager::Instance()->LoadShader("../FMEGraphics/shaders/RenderToTextureEffect.vert", "../FMEGraphics/shaders/RenderToTextureEffect.frag", nullptr, m_screenShaderName);
 
 	// framebuffer configuration	
 	glGenFramebuffers(1, &m_frameBuffer);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
 
-	ResourceManager::Instance()->LoadTexture(GLuint(screenSize.x), GLuint(screenSize.y), nullptr, true, std::string("NoEffect"));
-	std::shared_ptr<ITexture> texture = ResourceManager::Instance()->GetTexture(std::string("NoEffect"));
-	texture->SetName(std::string("NoEffect"));
+	ResourceManager::Instance()->LoadTexture(GLuint(screenSize.x), GLuint(screenSize.y), nullptr, true, std::string("RenderToTextureEffect"));
+	std::shared_ptr<ITexture> texture = ResourceManager::Instance()->GetTexture(std::string("RenderToTextureEffect"));
+	texture->SetName(std::string("RenderToTextureEffect"));
 	texture->Bind();
 
 	m_outputTextureNames.push_back(texture->GetName());
@@ -36,14 +36,14 @@ NoEffect::NoEffect(glm::ivec2 screenSize) : IEffect()
 
 }
 
-NoEffect::~NoEffect()
+RenderToTextureEffect::~RenderToTextureEffect()
 {
 	glDeleteFramebuffers(1, &m_frameBuffer);
 	glDeleteRenderbuffers(1, &m_renderBuffer);
 }
 
 
-void NoEffect::RenderStart()
+void RenderToTextureEffect::RenderStart()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
 	glEnable(GL_DEPTH_TEST); // enable depth testing (is disabled for rendering screen-space quad)							
@@ -51,13 +51,13 @@ void NoEffect::RenderStart()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void NoEffect::RenderEnd()
+void RenderToTextureEffect::RenderEnd()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
 
-void NoEffect::RenderToScreen()
+void RenderToTextureEffect::RenderToScreen()
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glDisable(GL_DEPTH_TEST); // disable depth test so screen-space quad isn't discarded due to depth test.						

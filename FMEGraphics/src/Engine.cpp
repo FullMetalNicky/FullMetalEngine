@@ -6,7 +6,7 @@
 #include "InputManager.h"
 #include "ResourceManager.h"
 #include "glm/gtx/string_cast.hpp"
-#include "NoEffect.h"
+#include "RenderToTextureEffect.h"
 #include "BloomEffect.h"
 
 
@@ -66,7 +66,7 @@ void Engine::SetWindowSize(glm::ivec2 windowSize)
 	m_windowSize = windowSize;
 	m_app = std::shared_ptr<OpenGLWindow>(new OpenGLWindow(m_windowSize, glm::vec2(3, 3), "FullMetalEngine"));
 	InputManager::Instance()->SetWindow(m_windowSize, m_app->GetWindow());
-	m_node = std::shared_ptr<NoEffect>(new NoEffect(m_windowSize));
+	m_node = std::shared_ptr<RenderToTextureEffect>(new RenderToTextureEffect(m_windowSize));
 	m_bloomNode = std::shared_ptr<BloomEffect>(new BloomEffect(m_windowSize));
 }
 
@@ -223,15 +223,15 @@ void Engine::updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>>
 void Engine::Draw()  //render start, draw scene, render end, app draw
 {
 	//FPS stuff?
-/*	m_node->RenderStart();	 	
+	m_node->RenderStart();	 	
 	m_scene->Draw();
 	m_node->RenderEnd();
-	m_node->RenderToScreen();*/
+	m_node->RenderToScreen();
 
-	m_bloomNode->RenderStart();
+	/*m_bloomNode->RenderStart();
 	m_scene->Draw();
 	m_bloomNode->RenderEnd();
-	m_bloomNode->RenderToScreen();
+	m_bloomNode->RenderToScreen();*/
 
 	m_app->Draw();
 }

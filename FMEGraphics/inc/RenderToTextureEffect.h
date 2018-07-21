@@ -7,15 +7,15 @@ namespace FME
 {
 	namespace Graphics
 	{
-		/** \class NoEffect
+		/** \class RenderToTextureEffect
 		*  \brief A class for simple, no effect rendering. Can render to texture, or to screen. 
 		*/
 
-		class NoEffect : public IEffect
+		class RenderToTextureEffect : public IEffect
 		{
 		public:
-			NoEffect(glm::ivec2 screenSize);
-			virtual ~NoEffect();
+			RenderToTextureEffect(glm::ivec2 screenSize);
+			virtual ~RenderToTextureEffect();
 
 			virtual void RenderStart();
 			virtual void RenderEnd();

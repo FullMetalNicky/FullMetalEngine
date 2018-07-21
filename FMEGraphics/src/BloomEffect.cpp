@@ -8,7 +8,7 @@ using namespace FME::Graphics;
 
 BloomEffect::BloomEffect(glm::ivec2 screenSize) : IEffect()
 {
-	m_screenShaderName = "NoEffect";
+	m_screenShaderName = "RenderToTextureEffect";
 	m_bloomEffectShader = "BloomEffect";
 	m_guassianShader = "guassian";
 	m_HPFShader = "HPF";
