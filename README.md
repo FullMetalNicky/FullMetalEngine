@@ -12,7 +12,7 @@ Huge props to this [guy](https://learnopengl.com/), who taught me most of what I
   - A project containing simple usage examples
   
 ## New Features!
-  - Lights are now avaiable for the obj shaders. I'm not sure about adding support for the other shaders because they simply render         geometric objects, but if anyone complains I will fix it.
+  - Lights are now available for the obj shaders. I'm not sure about adding support for the other shaders because they simply render         geometric objects, but if anyone complains I will fix it.
   
 ## Implementation
 ![Engine UML](https://www.dropbox.com/s/fcrkp7m6zitiiu9/UML.JPG?raw=1)
