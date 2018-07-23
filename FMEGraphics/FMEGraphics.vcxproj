@@ -16,6 +16,7 @@
     <ClInclude Include="inc\DecoderComponent.h" />
     <ClInclude Include="inc\DirectionalLight.h" />
     <ClInclude Include="inc\Engine.h" />
+    <ClInclude Include="inc\FullMetalEngine.h" />
     <ClInclude Include="inc\GameObject.h" />
     <ClInclude Include="inc\GeometryMesh.h" />
     <ClInclude Include="inc\GeometryModel.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="src\DecoderComponent.cpp" />
     <ClCompile Include="src\DirectionalLight.cpp" />
     <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\FullMetalEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GeometryMesh.cpp" />
     <ClCompile Include="src\GeometryModel.cpp" />

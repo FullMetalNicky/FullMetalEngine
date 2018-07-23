@@ -33,7 +33,7 @@ namespace FME
 			static std::shared_ptr<Engine> Instance();
 			
 			bool Alive() { return m_app->Alive(); };
-			void Update(double m_deltaTime); 
+			void Update(double deltaTime); 
 			void Draw() ; 
 
 			void SetWindowSize(glm::ivec2 windowSize);

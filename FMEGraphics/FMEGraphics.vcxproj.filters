@@ -123,6 +123,9 @@
     <ClInclude Include="inc\RenderToTextureEffect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\FullMetalEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -222,6 +225,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\RenderToTextureEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FullMetalEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

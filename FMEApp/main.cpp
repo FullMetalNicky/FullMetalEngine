@@ -1,17 +1,37 @@
 
-#include <stdlib.h>
-#include <glm/glm.hpp>
 #include <iostream>
 #include <chrono>
 #include <experimental/filesystem>
-#include <thread>       
-#include <chrono>   
-#include "SOIL.h"
 
-#include "Engine.h"
+#include "FullMetalEngine.h"
 
 
+int main()
+{
+	FME::Graphics::FullMetalEngine fme;
+	fme.SetFPS(30.0);
+	fme.SetWindowSize(2560, 1440);
+	fme.SetScene("scene.json");
 
+	std::chrono::duration<double> diff(0.0);
+
+	while (fme.Alive())
+	{
+		std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+
+		fme.Update(diff.count());
+		fme.Draw();
+		std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+
+		diff = end - start;
+	}
+
+	return 0;
+}
+
+
+
+#if 0
 void frameLoader()
 {
 	std::vector<unsigned char*> texturesToUpdate;
@@ -75,30 +95,8 @@ void SkyBoxLoader()
 
 	/*for(int frame = 0; frame < textures.size(); ++frame)
 	{
-		FME::Graphics::Engine::Instance()->PushFrame(textures[frame], width, height, true, frame);
-		//std::this_thread::sleep_for(std::chrono::milliseconds(33));
+	FME::Graphics::Engine::Instance()->PushFrame(textures[frame], width, height, true, frame);
+	//std::this_thread::sleep_for(std::chrono::milliseconds(33));
 	}*/
 }
-
-
-int main()
-{
-	FME::Graphics::Engine::Instance()->SetFPS(30.0f);
-	FME::Graphics::Engine::Instance()->SetWindowSize(glm::vec2(2560, 1440));
-	FME::Graphics::Engine::Instance()->SetScene("scene.json");
-
-	std::chrono::duration<double> diff(0.0);
-
-	while (FME::Graphics::Engine::Instance()->Alive())
-	{
-		std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
-
-		FME::Graphics::Engine::Instance()->Update(diff.count());
-		FME::Graphics::Engine::Instance()->Draw();
-		std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
-
-		diff = end - start;
-	}
-
-	return 0;
-}
+#endif
