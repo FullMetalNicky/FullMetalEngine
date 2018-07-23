@@ -6,7 +6,7 @@
 #include "InputManager.h"
 #include "ResourceManager.h"
 #include "glm/gtx/string_cast.hpp"
-#include "NoEffect.h"
+#include "RenderToTextureEffect.h"
 #include "BloomEffect.h"
 
 
@@ -23,6 +23,7 @@ Engine::Engine()
 	m_currentGameLevel = 0;
 
 	m_decoder = std::shared_ptr<DecoderComponent>(new DecoderComponent("skybox"));
+	m_pipeline = std::shared_ptr<Pipeline>(new Pipeline);
 }
 
 std::shared_ptr<Engine> Engine::Instance()
@@ -66,8 +67,7 @@ void Engine::SetWindowSize(glm::ivec2 windowSize)
 	m_windowSize = windowSize;
 	m_app = std::shared_ptr<OpenGLWindow>(new OpenGLWindow(m_windowSize, glm::vec2(3, 3), "FullMetalEngine"));
 	InputManager::Instance()->SetWindow(m_windowSize, m_app->GetWindow());
-	m_node = std::shared_ptr<NoEffect>(new NoEffect(m_windowSize));
-	m_bloomNode = std::shared_ptr<BloomEffect>(new BloomEffect(m_windowSize));
+	m_pipeline->AddEffect(std::shared_ptr<BloomEffect>(new BloomEffect(m_windowSize)), "BloomEffect");
 }
 
 
@@ -136,9 +136,9 @@ void Engine::updateCamera(std::vector<bool> keys, double deltaTime)
 		xoffset = (bool(keys[GLFW_KEY_KP_6]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_4]) * deltaTime * sensitivity);
 		yoffset = bool(keys[GLFW_KEY_KP_2]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_8]) * deltaTime * sensitivity;
 		zoffset = bool(keys[GLFW_KEY_KP_ADD]) * 0.5f - bool(keys[GLFW_KEY_KP_SUBTRACT]) * 0.5f;
-	//	m_camera->PanTumble(xoffset, yoffset);
+		m_camera->PanTumble(xoffset, yoffset);
 		m_camera->Zoom(zoffset);
-		m_camera->Rotate(xoffset, yoffset);
+	//	m_camera->Rotate(xoffset, yoffset);
 	}
 	if (keys['0'])
 	{
@@ -222,16 +222,12 @@ void Engine::updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>>
 
 void Engine::Draw()  //render start, draw scene, render end, app draw
 {
-	//FPS stuff?
-/*	m_node->RenderStart();	 	
-	m_scene->Draw();
-	m_node->RenderEnd();
-	m_node->RenderToScreen();*/
-
-	m_bloomNode->RenderStart();
-	m_scene->Draw();
-	m_bloomNode->RenderEnd();
-	m_bloomNode->RenderToScreen();
+	m_pipeline->ClearScreen();
+	
+	m_pipeline->RenderStart("BloomEffect");
+	m_scene->Draw();	
+	m_pipeline->RenderEnd();
+	m_pipeline->RenderToScreen();
 
 	m_app->Draw();
 }

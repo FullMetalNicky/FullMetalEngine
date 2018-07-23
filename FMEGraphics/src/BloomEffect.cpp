@@ -8,7 +8,7 @@ using namespace FME::Graphics;
 
 BloomEffect::BloomEffect(glm::ivec2 screenSize) : IEffect()
 {
-	m_screenShaderName = "NoEffect";
+	m_screenShaderName = "RenderToTextureEffect";
 	m_bloomEffectShader = "BloomEffect";
 	m_guassianShader = "guassian";
 	m_HPFShader = "HPF";
@@ -143,7 +143,6 @@ void BloomEffect::RenderToScreen()
 	glUniform1i(glGetUniformLocation(ResourceManager::Instance()->GetShader(m_bloomEffectShader).GetProgramID(), "texture0"), 0);
 	glUniform1i(glGetUniformLocation(ResourceManager::Instance()->GetShader(m_bloomEffectShader).GetProgramID(), "texture1"), 1);
 	glActiveTexture(GL_TEXTURE0);
-
 	glBindTexture(GL_TEXTURE_2D, m_textures["renderSceneTexture"]->GetTextureID());
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, m_textures["gaussianTextures" + std::to_string(0)]->GetTextureID());

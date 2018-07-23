@@ -6,7 +6,7 @@
 #include "SceneObject.h"
 #include "DecoderComponent.h"
 #include <memory>
-#include "IEffect.h"
+#include "Pipeline.h"
 
 
 namespace FME
@@ -33,7 +33,7 @@ namespace FME
 			static std::shared_ptr<Engine> Instance();
 			
 			bool Alive() { return m_app->Alive(); };
-			void Update(double m_deltaTime); 
+			void Update(double deltaTime); 
 			void Draw() ; 
 
 			void SetWindowSize(glm::ivec2 windowSize);
@@ -65,8 +65,7 @@ namespace FME
 			std::shared_ptr<OpenGLWindow> m_app;
 			std::shared_ptr<SceneObject> m_scene;
 			std::shared_ptr<DecoderComponent> m_decoder;			
-			std::shared_ptr<IEffect> m_node;
-			std::shared_ptr<IEffect> m_bloomNode;
+			std::shared_ptr<Pipeline> m_pipeline;
 
 
 			std::vector<unsigned int> m_gameLevels;

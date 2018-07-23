@@ -16,6 +16,7 @@
     <ClInclude Include="inc\DecoderComponent.h" />
     <ClInclude Include="inc\DirectionalLight.h" />
     <ClInclude Include="inc\Engine.h" />
+    <ClInclude Include="inc\FullMetalEngine.h" />
     <ClInclude Include="inc\GameObject.h" />
     <ClInclude Include="inc\GeometryMesh.h" />
     <ClInclude Include="inc\GeometryModel.h" />
@@ -30,7 +31,7 @@
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\LightComponent.h" />
     <ClInclude Include="inc\LightObject.h" />
-    <ClInclude Include="inc\NoEffect.h" />
+    <ClInclude Include="inc\RenderToTextureEffect.h" />
     <ClInclude Include="inc\OBJMesh.h" />
     <ClInclude Include="inc\OBJModel.h" />
     <ClInclude Include="inc\OpenGLWindow.h" />
@@ -53,6 +54,7 @@
     <ClCompile Include="src\DecoderComponent.cpp" />
     <ClCompile Include="src\DirectionalLight.cpp" />
     <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\FullMetalEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GeometryMesh.cpp" />
     <ClCompile Include="src\GeometryModel.cpp" />
@@ -64,7 +66,7 @@
     <ClCompile Include="src\IObject.cpp" />
     <ClCompile Include="src\LightComponent.cpp" />
     <ClCompile Include="src\LightObject.cpp" />
-    <ClCompile Include="src\NoEffect.cpp" />
+    <ClCompile Include="src\RenderToTextureEffect.cpp" />
     <ClCompile Include="src\OBJMesh.cpp" />
     <ClCompile Include="src\OBJModel.cpp" />
     <ClCompile Include="src\OpenGLWindow.cpp" />
@@ -91,8 +93,8 @@
     <None Include="shaders\guassian.vert" />
     <None Include="shaders\HPF.frag" />
     <None Include="shaders\HPF.vert" />
-    <None Include="shaders\NoEffect.frag" />
-    <None Include="shaders\NoEffect.vert" />
+    <None Include="shaders\RenderToTextureEffect.frag" />
+    <None Include="shaders\RenderToTextureEffect.vert" />
     <None Include="shaders\obj.frag" />
     <None Include="shaders\obj.vert" />
     <None Include="shaders\plane.frag" />
@@ -160,9 +162,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib-vc2015;$(ThirdParty)\glew\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -185,9 +188,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib-vc2015;$(ThirdParty)\glew\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

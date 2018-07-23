@@ -1,43 +1,37 @@
 
-#include <stdlib.h>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
 #include <iostream>
 #include <chrono>
 #include <experimental/filesystem>
-#include "SOIL.h"
 
-#include "Commons.h"
-#include "ResourceManager.h"
-#include "Engine.h"
-
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>   
+#include "FullMetalEngine.h"
 
 
-#pragma region mesh generation 
-
-glm::vec3 shapeFunc(glm::vec3 gridElm, glm::vec3 gridDim)
+int main()
 {
-	glm::vec3 gridCenter(0.5f);
-	glm::vec3 res;
+	FME::Graphics::FullMetalEngine fme;
+	fme.SetFPS(30.0);
+	fme.SetWindowSize(2560, 1440);
+	fme.SetScene("scene.json");
 
-	//Sphere
-	float latitude = glm::radians(180.0f);
-	float longitude = glm::radians(360.0f);
-	res.x = cos(longitude * (gridElm.x - gridCenter.x)) * cos(latitude * (gridElm.y - gridCenter.y));
-	res.y = sin(longitude * (gridElm.x - gridCenter.x)) * cos(latitude * (gridElm.y - gridCenter.y));
-	res.z = sin(latitude * (gridElm.y - gridCenter.y));
+	std::chrono::duration<double> diff(0.0);
 
-	//res = glm::vec3(gridElm.x - gridCenter.x, gridElm.y - gridCenter.y, 0.0f);
+	while (fme.Alive())
+	{
+		std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
 
-	return res;
+		fme.Update(diff.count());
+		fme.Draw();
+		std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+
+		diff = end - start;
+	}
+
+	return 0;
 }
 
-#pragma endregion 
 
 
+#if 0
 void frameLoader()
 {
 	std::vector<unsigned char*> texturesToUpdate;
@@ -101,39 +95,8 @@ void SkyBoxLoader()
 
 	/*for(int frame = 0; frame < textures.size(); ++frame)
 	{
-		FME::Graphics::Engine::Instance()->PushFrame(textures[frame], width, height, true, frame);
-		//std::this_thread::sleep_for(std::chrono::milliseconds(33));
+	FME::Graphics::Engine::Instance()->PushFrame(textures[frame], width, height, true, frame);
+	//std::this_thread::sleep_for(std::chrono::milliseconds(33));
 	}*/
 }
-
-void app1()
-{
-	FME::Graphics::Engine::Instance()->SetFPS(30.0f);
-	FME::Graphics::Engine::Instance()->SetWindowSize(glm::vec2(WIDTH, HEIGHT));
-	FME::Graphics::Engine::Instance()->SetScene("scene.json");
-
-	double deltaTime = 0.0;
-	double lastFrame = 0.0;
-
-//	std::thread thready(SkyBoxLoader);
-
-	while(FME::Graphics::Engine::Instance()->Alive())
-	{
-		double currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
-
-		FME::Graphics::Engine::Instance()->Update(deltaTime);
-		FME::Graphics::Engine::Instance()->Draw();
-	}
-
-	//thready.join();
-}
-
-
-int main()
-{
-	app1();
-
-	return 0;
-}
+#endif

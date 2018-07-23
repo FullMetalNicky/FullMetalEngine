@@ -8,6 +8,9 @@ using namespace FME::Graphics;
 TransformComponent::TransformComponent()
 {
 	m_type = "Transform";
+	m_translation = glm::vec3(0.0f);
+	m_rotation = glm::vec3(0.0f);
+	m_scale = glm::vec3(1.0f);
 }
 
 

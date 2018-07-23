@@ -13,53 +13,10 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Utils">
-      <UniqueIdentifier>{df186cd4-4a17-47e4-bc16-1009b299a294}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Shaders">
-      <UniqueIdentifier>{b0cc7137-0a95-472a-bdbb-0f5f7abb8472}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Commons.h">
-      <Filter>Utils</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Shaders\shader.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\shader.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\shaderCube.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\plane.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\plane.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\cube.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\cube.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Render2D.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\skybox.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="Shaders\skybox.vert">
-      <Filter>Shaders</Filter>
-    </None>
   </ItemGroup>
 </Project>

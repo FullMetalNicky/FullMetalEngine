@@ -1,0 +1,33 @@
+{
+  "Assets": {
+    "Models": {
+      "Geometry": [
+        {
+          "Type": "Plane",
+          "Texture": "smiley",
+          "Name": "smileyPlane"
+        }
+      ]
+    },
+    "Textures": [
+      {
+        "Path": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine/FMEExamples/smiley.jpg",
+        "Type": "2D",
+        "Name": "smiley"
+      }
+    ],
+    "LibraryPath": "D:/Dev/Code/VSProjects/OpenSource/FullMetalEngine"
+  },
+  "Levels": [
+    {      
+      "GameObjects": [
+        {
+          "Model": "smileyPlane",
+          "FixedTransform": "true",
+          "Name": "smileyPlane",
+          "Type": "2D"
+        }
+      ]
+    }
+  ]
+}

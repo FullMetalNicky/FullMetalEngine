@@ -48,4 +48,8 @@ void GameObject::Draw()
 void GameObject::Update(double deltaTime)
 {
 	m_model->Update();
+	for (int i = 0; i < m_components.size(); ++i)
+	{
+		m_components[i]->Update();
+	}
 }
