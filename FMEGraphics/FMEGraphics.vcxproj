@@ -160,9 +160,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib-vc2015;$(ThirdParty)\glew\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -185,9 +186,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib-vc2015;$(ThirdParty)\glew\lib\Release\x64</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

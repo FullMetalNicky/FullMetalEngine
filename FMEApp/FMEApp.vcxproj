@@ -54,13 +54,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ThirdParty)\picojson;$(ThirdParty)\assimp-master\include;$(ProjectDir)\..\FMESimulation\Inc;$(ProjectDir)\..\FMEGraphics\Inc;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ProjectDir)\..\FMESimulation\Inc;$(ProjectDir)\..\FMEGraphics\Inc;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(Third_Party)\assimp-master\lib\$(Configuration);..\x64\$(Configuration);$(ThirdParty)\glew\lib\Release\x64;$(ThirdParty)\glfw\lib\Debug;$(ThirdParty)\soil\lib\$(Configuration)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc140-mt.lib;FMEGraphics.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\x64\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FMEGraphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -72,34 +72,19 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ThirdParty)\picojson;$(ThirdParty)\assimp-master\include;$(ProjectDir)\..\FMESimulation\Inc;$(ProjectDir)\..\FMEGraphics\Inc;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ProjectDir)\..\FMESimulation\Inc;$(ProjectDir)\..\FMEGraphics\Inc;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(Third_Party)\assimp-master\lib\$(Configuration);..\x64\$(Configuration);$(ThirdParty)\glew\lib\$(Configuration)\x64;$(ThirdParty)\glfw\lib\Release;$(ThirdParty)\soil\lib\$(Configuration)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc140-mt.lib;FMEGraphics.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\x64\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>FMEGraphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Commons.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Render2D.vert" />
-    <None Include="Shaders\cube.frag" />
-    <None Include="Shaders\cube.vert" />
-    <None Include="Shaders\plane.frag" />
-    <None Include="Shaders\plane.vert" />
-    <None Include="Shaders\shader.frag" />
-    <None Include="Shaders\shader.vert" />
-    <None Include="Shaders\shaderCube.frag" />
-    <None Include="Shaders\skybox.frag" />
-    <None Include="Shaders\skybox.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FMEGraphics\FMEGraphics.vcxproj">

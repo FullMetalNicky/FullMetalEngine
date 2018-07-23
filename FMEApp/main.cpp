@@ -1,41 +1,15 @@
 
 #include <stdlib.h>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <iostream>
 #include <chrono>
 #include <experimental/filesystem>
+#include <thread>       
+#include <chrono>   
 #include "SOIL.h"
 
-#include "Commons.h"
-#include "ResourceManager.h"
 #include "Engine.h"
 
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>   
-
-
-#pragma region mesh generation 
-
-glm::vec3 shapeFunc(glm::vec3 gridElm, glm::vec3 gridDim)
-{
-	glm::vec3 gridCenter(0.5f);
-	glm::vec3 res;
-
-	//Sphere
-	float latitude = glm::radians(180.0f);
-	float longitude = glm::radians(360.0f);
-	res.x = cos(longitude * (gridElm.x - gridCenter.x)) * cos(latitude * (gridElm.y - gridCenter.y));
-	res.y = sin(longitude * (gridElm.x - gridCenter.x)) * cos(latitude * (gridElm.y - gridCenter.y));
-	res.z = sin(latitude * (gridElm.y - gridCenter.y));
-
-	//res = glm::vec3(gridElm.x - gridCenter.x, gridElm.y - gridCenter.y, 0.0f);
-
-	return res;
-}
-
-#pragma endregion 
 
 
 void frameLoader()
@@ -106,34 +80,25 @@ void SkyBoxLoader()
 	}*/
 }
 
-void app1()
-{
-	FME::Graphics::Engine::Instance()->SetFPS(30.0f);
-	FME::Graphics::Engine::Instance()->SetWindowSize(glm::vec2(WIDTH, HEIGHT));
-	FME::Graphics::Engine::Instance()->SetScene("scene.json");
-
-	double deltaTime = 0.0;
-	double lastFrame = 0.0;
-
-//	std::thread thready(SkyBoxLoader);
-
-	while(FME::Graphics::Engine::Instance()->Alive())
-	{
-		double currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
-		lastFrame = currentFrame;
-
-		FME::Graphics::Engine::Instance()->Update(deltaTime);
-		FME::Graphics::Engine::Instance()->Draw();
-	}
-
-	//thready.join();
-}
-
 
 int main()
 {
-	app1();
+	FME::Graphics::Engine::Instance()->SetFPS(30.0f);
+	FME::Graphics::Engine::Instance()->SetWindowSize(glm::vec2(2560, 1440));
+	FME::Graphics::Engine::Instance()->SetScene("scene.json");
+
+	std::chrono::duration<double> diff(0.0);
+
+	while (FME::Graphics::Engine::Instance()->Alive())
+	{
+		std::chrono::time_point<std::chrono::system_clock> start = std::chrono::system_clock::now();
+
+		FME::Graphics::Engine::Instance()->Update(diff.count());
+		FME::Graphics::Engine::Instance()->Draw();
+		std::chrono::time_point<std::chrono::system_clock> end = std::chrono::system_clock::now();
+
+		diff = end - start;
+	}
 
 	return 0;
 }
