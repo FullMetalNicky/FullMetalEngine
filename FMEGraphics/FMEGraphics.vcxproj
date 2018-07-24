@@ -123,14 +123,14 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -166,7 +166,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64;$(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
     </Lib>
@@ -183,6 +183,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ThirdParty)\picojson;$(ThirdParty)\assimp-master\include;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ProjectDir)inc;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -192,9 +193,10 @@
     </Link>
     <Lib>
       <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64;$(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
