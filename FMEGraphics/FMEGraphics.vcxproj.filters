@@ -126,6 +126,12 @@
     <ClInclude Include="inc\FullMetalEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IKeyBoardController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -228,6 +234,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\FullMetalEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IKeyBoardController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

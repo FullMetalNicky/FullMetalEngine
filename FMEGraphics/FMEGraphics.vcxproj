@@ -23,7 +23,9 @@
     <ClInclude Include="inc\GroupObject.h" />
     <ClInclude Include="inc\ICamera.h" />
     <ClInclude Include="inc\IComponent.h" />
+    <ClInclude Include="inc\IController.h" />
     <ClInclude Include="inc\IEffect.h" />
+    <ClInclude Include="inc\IKeyBoardController.h" />
     <ClInclude Include="inc\IMesh.h" />
     <ClInclude Include="inc\IModel.h" />
     <ClInclude Include="inc\InputManager.h" />
@@ -60,6 +62,7 @@
     <ClCompile Include="src\GeometryModel.cpp" />
     <ClCompile Include="src\GroupObject.cpp" />
     <ClCompile Include="src\IEffect.cpp" />
+    <ClCompile Include="src\IKeyBoardController.cpp" />
     <ClCompile Include="src\IMesh.cpp" />
     <ClCompile Include="src\IModel.cpp" />
     <ClCompile Include="src\InputManager.cpp" />

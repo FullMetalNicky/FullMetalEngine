@@ -30,6 +30,14 @@ void TransformComponent::Update()
 		m_translation += transR.Translation + transL.Translation;
 		m_scale += transR.Scale + transL.Scale;
 		m_transform = Transform{ m_translation, m_rotation, m_scale };
+
+		for (int i = 0; i < m_keys.size(); ++i)
+		{
+			Transform trans = Engine::Instance()->GetControllerUpdate(m_keys[i]);
+			m_rotation += trans.Rotation;
+			m_translation += trans.Translation;
+			m_scale += trans.Scale;
+		}
 	}
 }
 
