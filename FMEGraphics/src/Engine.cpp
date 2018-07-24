@@ -165,59 +165,28 @@ void Engine::updateInput(std::vector<bool> keys, double deltaTime)
 	}
 	
 	updateCamera(keys, deltaTime);
-	updateComponents(keys, deltaTime);
+	m_deltaTime = deltaTime;
 }
 
-void Engine::updateComponents(std::vector<bool> keys, double deltaTime)
+
+Transform Engine::GetControllerUpdate(const char key) const
 {
-	if (keys['L'] || keys['R'])
+	std::vector<bool> keys = InputManager::Instance()->GetKeys();
+	Transform deltaMovement = { glm::vec3(0.0f) , glm::vec3(0.0f) , glm::vec3(0.0f) };
+	float deltaAngle = 0.0f;
+	float sensitivity = 10.0f;
+
+	if (('L' == key) || ('R' == key))
 	{
-		float deltaAngle = 0.0f;
-		float sensitivity = 10.0f;
-
-		deltaAngle = sensitivity * deltaTime * bool(keys['L']) - sensitivity * deltaTime * bool(keys['R']);
-		Transform transform{ glm::vec3(0.0f), glm::vec3(0.0f, deltaAngle, 0.0f), glm::vec3(0.0f) };
-
-		std::vector<std::vector<std::shared_ptr<IObject>>> children = m_scene->GetChildren();
-
-		for (int i = 0; i < children[m_currentGameLevel].size(); ++i)
+		if (keys[key])
 		{
-			std::shared_ptr<TransformComponent> trans = children[m_currentGameLevel][i]->GetTransformComponent();
-			glm::vec3  rot = trans->GetRotation();
-			glm::vec3  translation = trans->GetTranslation();
-			glm::vec3  scale = trans->GetScale();
-			rot += transform.Rotation;
-			translation += transform.Translation;
-			scale += transform.Scale;
-			trans->SetRotation(rot);
-			trans->SetTranslation(translation);
-			trans->SetScale(scale);
-			trans->Update();
-			std::map<std::string, std::shared_ptr<IObject>> subChildren = children[m_currentGameLevel][i]->GetChildren();
-			updateComponentsImp(subChildren, transform);
+			deltaAngle = sensitivity * m_deltaTime * ('L' == key) - sensitivity * m_deltaTime * ('R' == key);
+			deltaMovement = { glm::vec3(0.0f) , glm::vec3(0.0f, deltaAngle, 0.0f) , glm::vec3(0.0f) };
 		}
 	}
+	return deltaMovement;
 }
 
-void Engine::updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>> children, const Transform& transform)
-{
-	for (std::map<std::string, std::shared_ptr<IObject>>::iterator it = children.begin(); it != children.end(); ++it)
-	{
-		std::shared_ptr<TransformComponent> trans = it->second->GetTransformComponent();
-		glm::vec3  rot = trans->GetRotation();
-		glm::vec3  translation = trans->GetTranslation();
-		glm::vec3  scale = trans->GetScale();
-		rot += transform.Rotation;
-		translation += transform.Translation;
-		scale += transform.Scale;
-		trans->SetRotation(rot);
-		trans->SetTranslation(translation);
-		trans->SetScale(scale);
-		trans->Update();
-		std::map<std::string, std::shared_ptr<IObject>> subChildren = it->second->GetChildren();
-		updateComponentsImp(subChildren, transform);
-	}
-}
 
 
 void Engine::Draw()  //render start, draw scene, render end, app draw

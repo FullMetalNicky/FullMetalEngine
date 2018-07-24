@@ -48,15 +48,14 @@ namespace FME
 
 			void PushFrame(const std::vector<unsigned char*>& image, int width, int height, bool alpha = false, int frameNum = -1);
 
+			Transform GetControllerUpdate(const char key) const;
 			
 		protected:
-
+			
 			Engine();
 
 			void updateOnce(double deltaTime);
 			void updateInput(std::vector<bool> keys, double deltaTime);
-			void updateComponents(std::vector<bool> keys, double deltaTime);
-			void updateComponentsImp(std::map<std::string, std::shared_ptr<IObject>> subChildren, const Transform& transform);
 			unsigned int updateGameLevel(std::vector<bool> keys);
 			void updateCamera(std::vector<bool> keys, double deltaTime);
 
@@ -67,6 +66,7 @@ namespace FME
 			std::shared_ptr<DecoderComponent> m_decoder;			
 			std::shared_ptr<Pipeline> m_pipeline;
 
+			double m_deltaTime = 0.0;
 
 			std::vector<unsigned int> m_gameLevels;
 			std::vector<std::pair<glm::vec3, glm::vec3>> m_cameraPresets; //per level
