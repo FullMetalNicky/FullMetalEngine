@@ -73,12 +73,11 @@ void Engine::SetWindowSize(glm::ivec2 windowSize)
 	m_pipeline->AddEffect(std::shared_ptr<RenderToTextureEffect>(new RenderToTextureEffect(m_windowSize, "RenderToTextureEffect2")), "RenderToTextureEffect2");
 
 	std::vector<ViewPortParams> params = { ViewPortParams{ "RenderToTextureEffect1", 
-		glm::ivec4(0.5 *  m_windowSize.x, 0.0, 1.0, 1.0),
-		//glm::ivec4(0.15, 0.0, 0.7 * m_windowSize.x, m_windowSize.y)},
+		glm::ivec4(0.0, 0.0, m_windowSize.x, m_windowSize.y),
 		glm::ivec4(0.0, 0.0, 0.5 *  m_windowSize.x, m_windowSize.y) },
 		ViewPortParams{ "RenderToTextureEffect2",
-		glm::ivec4(0, 0.0, 1.0,  1.0),
-		glm::ivec4(0.0, 0.0, 0.5 * m_windowSize.x, m_windowSize.y)}};
+		glm::ivec4(0.5 * m_windowSize.x, 0.0, 0.5 *  m_windowSize.x, m_windowSize.y),
+		glm::ivec4(0.5 * m_windowSize.x, 0.0, 0.5 * m_windowSize.x, m_windowSize.y)}};
 
 	m_pipeline->AddEffect(std::shared_ptr<ViewPortEffect>(new ViewPortEffect(m_windowSize, params)), "ViewPortEffect");
 }
@@ -211,11 +210,15 @@ void Engine::Draw()  //render start, draw scene, render end, app draw
 {
 	m_pipeline->ClearScreen();
 	
+	m_camera->SetPosition(m_cameraPresets[0].first);
+	m_camera->SetPOI(m_cameraPresets[0].second);
+	m_camera->Update();
 	m_pipeline->RenderStart("RenderToTextureEffect1");
 	m_scene->Draw();	
 	m_pipeline->RenderEnd();
-	//m_pipeline->RenderToScreen();
+//	m_pipeline->RenderToScreen();
 
+	m_pipeline->ClearScreen();
 	m_camera->SetPosition(glm::vec3(0.0f, 35.0f, 6.0f));
 	m_camera->SetPOI(glm::vec3(0.0f, 0.0f, 6.01f));
 	m_camera->Update();

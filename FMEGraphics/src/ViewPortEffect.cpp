@@ -12,8 +12,8 @@ ViewPortEffect::ViewPortEffect(glm::ivec2 screenSize, const std::vector<ViewPort
 	{
 		m_outputTextureNames.push_back(m_viewPortParams[i].textureName);
 	}
-
-	m_renderQuad = FME::Graphics::GeometryMesh::GeneratePlane(m_outputTextureNames);
+	std::vector<std::string> texVec;
+	m_renderQuad = FME::Graphics::GeometryMesh::GeneratePlane(texVec);
 }
 
 
@@ -51,7 +51,12 @@ void ViewPortEffect::RenderToScreen()
 	}
 	glUniform1i(glGetUniformLocation(programID, "viewPortParamsNum"), m_viewPortParams.size());
 
-
+	glUniform1i(glGetUniformLocation(ResourceManager::Instance()->GetShader(m_screenShaderName).GetProgramID(), "Texture0"), 0);
+	glUniform1i(glGetUniformLocation(ResourceManager::Instance()->GetShader(m_screenShaderName).GetProgramID(), "Texture1"), 1);
+	glActiveTexture(GL_TEXTURE0);
+	ResourceManager::Instance()->GetTexture(m_outputTextureNames[0])->Bind();
+	glActiveTexture(GL_TEXTURE1);
+	ResourceManager::Instance()->GetTexture(m_outputTextureNames[1])->Bind();
 	m_renderQuad->Draw(ResourceManager::Instance()->GetShader(m_screenShaderName).GetProgramID());
 	ResourceManager::Instance()->GetShader(m_screenShaderName).UnUse();
 }
