@@ -15,6 +15,7 @@
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\DecoderComponent.h" />
     <ClInclude Include="inc\DirectionalLight.h" />
+    <ClInclude Include="inc\EffectLoader.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FullMetalEngine.h" />
     <ClInclude Include="inc\GameObject.h" />
@@ -56,6 +57,7 @@
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\DecoderComponent.cpp" />
     <ClCompile Include="src\DirectionalLight.cpp" />
+    <ClCompile Include="src\EffectLoader.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FullMetalEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />

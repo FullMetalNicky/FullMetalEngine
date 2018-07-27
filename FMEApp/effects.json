@@ -1,0 +1,22 @@
+{
+  "Effects": [
+    {
+      "Type": "RenderToTextureEffect",
+      "Id": "RenderToTextureEffect1",
+      "Draw": "1",
+      "ActiveCamera": "-1"
+    },
+	{
+      "Type": "RenderToTextureEffect",
+      "Id": "RenderToTextureEffect2",
+      "Draw": "1",
+      "ActiveCamera": "2"
+    },
+	{
+      "Type": "ViewPortEffect",
+      "Id": "ViewPortEffect",
+      "Draw": "0",
+      "ActiveCamera": "-1"
+    }
+  ]
+}

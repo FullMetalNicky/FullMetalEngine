@@ -15,7 +15,7 @@ namespace FME
 		{
 			std::string textureName;
 			glm::vec4 textureCropParams; // (x, y, width, height)
-			glm::vec4 texturePositionParams; // (x, y, width, height)
+			glm::vec4 textureScreenParams; // (x, y, width, height)
 		};
 
 

@@ -47,7 +47,7 @@ void ViewPortEffect::RenderToScreen()
 	for (int i = 0; i < m_viewPortParams.size(); ++i)
 	{
 		glUniform4f(glGetUniformLocation(programID, parseShaderParam("textureCropParams", i).c_str()), m_viewPortParams[i].textureCropParams.x, m_viewPortParams[i].textureCropParams.y, m_viewPortParams[i].textureCropParams.z, m_viewPortParams[i].textureCropParams.w);
-		glUniform4f(glGetUniformLocation(programID, parseShaderParam("texturePositionParams", i).c_str()), m_viewPortParams[i].texturePositionParams.x, m_viewPortParams[i].texturePositionParams.y, m_viewPortParams[i].texturePositionParams.z, m_viewPortParams[i].texturePositionParams.w);
+		glUniform4f(glGetUniformLocation(programID, parseShaderParam("textureScreenParams", i).c_str()), m_viewPortParams[i].textureScreenParams.x, m_viewPortParams[i].textureScreenParams.y, m_viewPortParams[i].textureScreenParams.z, m_viewPortParams[i].textureScreenParams.w);
 	}
 	glUniform1i(glGetUniformLocation(programID, "viewPortParamsNum"), m_viewPortParams.size());
 

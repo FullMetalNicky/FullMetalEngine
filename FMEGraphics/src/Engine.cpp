@@ -6,9 +6,8 @@
 #include "InputManager.h"
 #include "ResourceManager.h"
 #include "glm/gtx/string_cast.hpp"
-#include "RenderToTextureEffect.h"
-#include "BloomEffect.h"
-#include "ViewPortEffect.h"
+#include "EffectLoader.h"
+
 
 
 using namespace FME::Graphics;
@@ -24,7 +23,6 @@ Engine::Engine()
 	m_currentGameLevel = 0;
 
 	m_decoder = std::shared_ptr<DecoderComponent>(new DecoderComponent("skybox"));
-	m_pipeline = std::shared_ptr<Pipeline>(new Pipeline);
 }
 
 std::shared_ptr<Engine> Engine::Instance()
@@ -54,6 +52,12 @@ void Engine::SetScene(const std::string& jsonPath)
 	//update camera to relevant position
 }
 
+void Engine::SetEffects(const std::string& jsonPath)
+{
+	EffectLoader el(jsonPath);
+	el.LoadEffects(m_pipeline);
+}
+
 void Engine::PushFrame(const std::vector<unsigned char*>& image, int width, int height, bool alpha, int frameNum )
 {	
 	DataBuffer buffer{ image, width, height, alpha , frameNum};
@@ -73,18 +77,7 @@ void Engine::SetWindowSize(glm::ivec2 windowSize)
 	m_windowSize = windowSize;
 	m_app = std::shared_ptr<OpenGLWindow>(new OpenGLWindow(m_windowSize, glm::vec2(3, 3), "FullMetalEngine"));
 	InputManager::Instance()->SetWindow(m_windowSize, m_app->GetWindow());
-	m_pipeline->AddEffect(std::shared_ptr<BloomEffect>(new BloomEffect(m_windowSize)), "BloomEffect");
-	/*m_pipeline->AddEffect(std::shared_ptr<RenderToTextureEffect>(new RenderToTextureEffect(m_windowSize, "RenderToTextureEffect1")), "RenderToTextureEffect1");
-	m_pipeline->AddEffect(std::shared_ptr<RenderToTextureEffect>(new RenderToTextureEffect(m_windowSize, "RenderToTextureEffect2")), "RenderToTextureEffect2");
-
-	std::vector<ViewPortParams> params = { ViewPortParams{ "RenderToTextureEffect1", 
-		glm::vec4(0.15, 0.0, 0.7, 1.0),
-		glm::vec4(0.0, 0.0, 0.7, 1.0) },
-		ViewPortParams{ "RenderToTextureEffect2",
-		glm::vec4(0.35, 0.0, 0.3, 1.0),
-		glm::vec4(0.7, 0.0, 0.3, 1.0)}};
-
-	m_pipeline->AddEffect(std::shared_ptr<ViewPortEffect>(new ViewPortEffect(m_windowSize, params)), "ViewPortEffect");*/
+	m_pipeline = std::shared_ptr<Pipeline>(new Pipeline(m_windowSize));
 }
 
 
@@ -216,12 +209,7 @@ Transform Engine::GetControllerUpdate(const char key) const
 
 void Engine::Draw()  //render start, draw scene, render end, app draw
 {
-	m_pipeline->ClearScreen();
-	
-	m_pipeline->RenderStart("BloomEffect");
-	m_scene->Draw();	
-	m_pipeline->RenderEnd();
-	m_pipeline->RenderToScreen();
+	m_pipeline->Render(m_scene);
 
 	m_app->Draw();
 }

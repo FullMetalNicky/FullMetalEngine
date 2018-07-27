@@ -38,12 +38,16 @@ namespace FME
 
 			void SetWindowSize(glm::ivec2 windowSize);
 			void SetScene(const std::string& jsonPath);
+			void SetEffects(const std::string& jsonPath);
 
 			void SetFPS(double fps = 30) { m_maxTimeStep = 1.0 / fps; };
 			double GetFPS() const {return double(1.0 / m_maxTimeStep);};
+			glm::ivec2 GetWindowSize() const { return m_windowSize; };
 
 			void SetCameraPresets(std::vector<std::pair<glm::vec3, glm::vec3>> cameraPresets) { m_cameraPresets = cameraPresets; };
 			void GetCamera(glm::mat4& view, glm::mat4& proj) const;
+			void SetActiveCamera(unsigned int index) { m_activeCamera = index; };
+			unsigned int GetActiveCamera() const {return  m_activeCamera; };
 			glm::vec3 GetCameraPosition() const {return m_cameras[m_activeCamera]->GetPosition(); };
 
 			void PushFrame(const std::vector<unsigned char*>& image, int width, int height, bool alpha = false, int frameNum = -1);
