@@ -5,7 +5,6 @@ Huge props to this [guy](https://learnopengl.com/), who taught me most of what I
 
 ## Future features!
   - Shadow rendering? Hmm...maybe.
-  - A real pipeline  
   - Text rendering
   - Widgets, if I'm really feeling masochistic 
   - Physics simulation module 
