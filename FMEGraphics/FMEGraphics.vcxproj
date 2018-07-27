@@ -49,6 +49,7 @@
     <ClInclude Include="inc\Texture2D.h" />
     <ClInclude Include="inc\Texture3D.h" />
     <ClInclude Include="inc\TransformComponent.h" />
+    <ClInclude Include="inc\ViewPortEffect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BloomEffect.cpp" />
@@ -86,6 +87,7 @@
     <ClCompile Include="src\Texture3D.cpp" />
     <ClCompile Include="src\TransformComponent.cpp" />
     <ClCompile Include="src\Utility.cpp" />
+    <ClCompile Include="src\ViewPortEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\BloomEffect.frag" />
@@ -104,6 +106,8 @@
     <None Include="shaders\plane.vert" />
     <None Include="shaders\skybox.frag" />
     <None Include="shaders\skybox.vert" />
+    <None Include="shaders\ViewPort.frag" />
+    <None Include="shaders\ViewPort.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FMEUtilities\FMEUtilities.vcxproj">

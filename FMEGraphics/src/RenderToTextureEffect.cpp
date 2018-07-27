@@ -6,16 +6,19 @@
 using namespace FME::Graphics;
 
 
-RenderToTextureEffect::RenderToTextureEffect(glm::ivec2 screenSize) : IEffect()
+RenderToTextureEffect::RenderToTextureEffect(glm::ivec2 screenSize, const std::string& textureNameByUser) : IEffect()
 {
 	m_screenShaderName = "RenderToTextureEffect";
-
+	std::string textureName;
 	glGenFramebuffers(1, &m_frameBuffer);
 	glBindFramebuffer(GL_FRAMEBUFFER, m_frameBuffer);
 
-	ResourceManager::Instance()->LoadTexture(GLuint(screenSize.x), GLuint(screenSize.y), nullptr, true, std::string("RenderToTextureEffect"));
-	std::shared_ptr<ITexture> texture = ResourceManager::Instance()->GetTexture(std::string("RenderToTextureEffect"));
-	texture->SetName(std::string("RenderToTextureEffect"));
+	if ("" == textureNameByUser) textureName = "RenderToTextureEffect";
+	else textureName = textureNameByUser;
+
+	ResourceManager::Instance()->LoadTexture(GLuint(screenSize.x), GLuint(screenSize.y), nullptr, true, textureName);
+	std::shared_ptr<ITexture> texture = ResourceManager::Instance()->GetTexture(textureName);
+	texture->SetName(textureName);
 	texture->Bind();
 
 	m_outputTextureNames.push_back(texture->GetName());

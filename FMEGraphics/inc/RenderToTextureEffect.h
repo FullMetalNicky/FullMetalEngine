@@ -14,7 +14,7 @@ namespace FME
 		class RenderToTextureEffect : public IEffect
 		{
 		public:
-			RenderToTextureEffect(glm::ivec2 screenSize);
+			RenderToTextureEffect(glm::ivec2 screenSize, const std::string& textureName = "");
 			virtual ~RenderToTextureEffect();
 
 			virtual void RenderStart();
