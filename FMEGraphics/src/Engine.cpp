@@ -78,11 +78,11 @@ void Engine::SetWindowSize(glm::ivec2 windowSize)
 	m_pipeline->AddEffect(std::shared_ptr<RenderToTextureEffect>(new RenderToTextureEffect(m_windowSize, "RenderToTextureEffect2")), "RenderToTextureEffect2");
 
 	std::vector<ViewPortParams> params = { ViewPortParams{ "RenderToTextureEffect1", 
-		glm::ivec4(0.0, 0.0, m_windowSize.x, m_windowSize.y),
-		glm::ivec4(0.0, 0.0, 0.5 *  m_windowSize.x, m_windowSize.y) },
+		glm::vec4(0.15, 0.0, 0.7, 1.0),
+		glm::vec4(0.0, 0.0, 0.7, 1.0) },
 		ViewPortParams{ "RenderToTextureEffect2",
-		glm::ivec4(0.5 * m_windowSize.x, 0.0, 0.5 *  m_windowSize.x, m_windowSize.y),
-		glm::ivec4(0.5 * m_windowSize.x, 0.0, 0.5 * m_windowSize.x, m_windowSize.y)}};
+		glm::vec4(0.35, 0.0, 0.3, 1.0),
+		glm::vec4(0.7, 0.0, 0.3, 1.0)}};
 
 	m_pipeline->AddEffect(std::shared_ptr<ViewPortEffect>(new ViewPortEffect(m_windowSize, params)), "ViewPortEffect");
 }

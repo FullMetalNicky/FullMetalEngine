@@ -21,11 +21,17 @@ uniform sampler2D Texture1;
 
 void main()
 {    
-	if(TexCoords.x < 0.7) color = texture(Texture0, vec2(TexCoords.x / 0.7, TexCoords.y));
-	else 
+	color = vec4(0.0, 0.0, 0.0, 1.0);
+
+	if((TexCoords.x > viewPortParams[0].texturePositionParams.x) && (TexCoords.y > viewPortParams[0].texturePositionParams.y) && (TexCoords.y < viewPortParams[0].texturePositionParams.y + viewPortParams[0].texturePositionParams.w) && (TexCoords.x < viewPortParams[0].texturePositionParams.x + viewPortParams[0].texturePositionParams.z))
 	{
-		vec2 scaledTexCoords = vec2(- 0.35 + TexCoords.x, TexCoords.y);
-		color = texture(Texture1, scaledTexCoords);
+		vec2 scaledTexCoords = vec2(TexCoords.x  - viewPortParams[0].texturePositionParams.x + viewPortParams[0].textureCropParams.x, TexCoords.y  - viewPortParams[0].texturePositionParams.y + viewPortParams[0].textureCropParams.y);
+		color += texture(Texture0, scaledTexCoords);
 	}
-	//color = texture(Texture1, TexCoords);
+
+	if((TexCoords.x > viewPortParams[1].texturePositionParams.x) && (TexCoords.y > viewPortParams[1].texturePositionParams.y) && (TexCoords.y < viewPortParams[1].texturePositionParams.y + viewPortParams[1].texturePositionParams.w) && (TexCoords.x < viewPortParams[1].texturePositionParams.x + viewPortParams[1].texturePositionParams.z))
+	{
+		vec2 scaledTexCoords = vec2(TexCoords.x  - viewPortParams[1].texturePositionParams.x + viewPortParams[1].textureCropParams.x, TexCoords.y  - viewPortParams[1].texturePositionParams.y + viewPortParams[1].textureCropParams.y);
+		color += texture(Texture1, scaledTexCoords);
+	}
 }

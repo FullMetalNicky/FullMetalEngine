@@ -14,8 +14,8 @@ namespace FME
 		struct ViewPortParams
 		{
 			std::string textureName;
-			glm::ivec4 textureCropParams; // (x, y, width, height)
-			glm::ivec4 texturePositionParams; // (x, y, width, height)
+			glm::vec4 textureCropParams; // (x, y, width, height)
+			glm::vec4 texturePositionParams; // (x, y, width, height)
 		};
 
 
