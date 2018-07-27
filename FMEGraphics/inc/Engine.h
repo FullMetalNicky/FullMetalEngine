@@ -43,8 +43,8 @@ namespace FME
 			double GetFPS() const {return double(1.0 / m_maxTimeStep);};
 
 			void SetCameraPresets(std::vector<std::pair<glm::vec3, glm::vec3>> cameraPresets) { m_cameraPresets = cameraPresets; };
-			void GetCamera(glm::mat4& view, glm::mat4& proj) const ;
-			glm::vec3 GetCameraPosition() const {return m_camera->GetPosition(); };
+			void GetCamera(glm::mat4& view, glm::mat4& proj) const;
+			glm::vec3 GetCameraPosition() const {return m_cameras[m_activeCamera]->GetPosition(); };
 
 			void PushFrame(const std::vector<unsigned char*>& image, int width, int height, bool alpha = false, int frameNum = -1);
 
@@ -60,7 +60,8 @@ namespace FME
 			void updateCamera(std::vector<bool> keys, double deltaTime);
 
 			static std::shared_ptr<Engine> _instance;
-			std::shared_ptr<Camera> m_camera;
+			std::vector<std::shared_ptr<Camera>> m_cameras;
+			unsigned int m_activeCamera;
 			std::shared_ptr<OpenGLWindow> m_app;
 			std::shared_ptr<SceneObject> m_scene;
 			std::shared_ptr<DecoderComponent> m_decoder;			
@@ -69,13 +70,13 @@ namespace FME
 			double m_deltaTime = 0.0;
 
 			std::vector<unsigned int> m_gameLevels;
+			unsigned int m_currentGameLevel;
 			std::vector<std::pair<glm::vec3, glm::vec3>> m_cameraPresets; //per level
 			double m_accumulator;
 			double m_maxTimeStep;
 			double m_simulationTime;
 			std::string m_jsonPath;
 			glm::ivec2 m_windowSize;
-			unsigned int m_currentGameLevel;
 		};
 	}
 }

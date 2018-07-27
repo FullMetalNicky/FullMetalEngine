@@ -45,8 +45,12 @@ void Engine::SetScene(const std::string& jsonPath)
 		m_scene = std::shared_ptr<SceneObject>(new SceneObject(m_jsonPath));
 	}
 	m_scene->SetGameLevel(m_currentGameLevel);
-	m_camera = std::shared_ptr<Camera>(new Camera(m_cameraPresets[m_currentGameLevel].first, m_cameraPresets[m_currentGameLevel].second));
 
+	for (int i = 0; i < m_cameraPresets.size(); ++i)
+	{
+		m_cameras.push_back(std::shared_ptr<Camera>(new Camera(m_cameraPresets[i].first, m_cameraPresets[i].second)));
+	}
+	m_activeCamera = m_currentGameLevel;
 	//update camera to relevant position
 }
 
@@ -59,9 +63,10 @@ void Engine::PushFrame(const std::vector<unsigned char*>& image, int width, int 
 
 void Engine::GetCamera(glm::mat4& view, glm::mat4& proj) const 
 {
-	view = m_camera->GetViewMatrix();
+	view = m_cameras[m_activeCamera]->GetViewMatrix();
 	proj = glm::perspective(45.0f, (float)m_windowSize.x / (float)m_windowSize.y, 0.1f, 100.0f);
 }
+
 
 void Engine::SetWindowSize(glm::ivec2 windowSize)
 {
@@ -112,7 +117,7 @@ void  Engine::updateOnce(double deltaTime)
 
 	}
 	updateInput(InputManager::Instance()->GetKeys(), deltaTime);
-	m_camera->Update();
+	m_cameras[m_activeCamera]->Update();
 	m_decoder->Update();
 	m_scene->Update(deltaTime);
 }
@@ -148,24 +153,27 @@ void Engine::updateCamera(std::vector<bool> keys, double deltaTime)
 		xoffset = (bool(keys[GLFW_KEY_KP_6]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_4]) * deltaTime * sensitivity);
 		yoffset = bool(keys[GLFW_KEY_KP_2]) * deltaTime * sensitivity - bool(keys[GLFW_KEY_KP_8]) * deltaTime * sensitivity;
 		zoffset = bool(keys[GLFW_KEY_KP_ADD]) * 0.5f - bool(keys[GLFW_KEY_KP_SUBTRACT]) * 0.5f;
-		m_camera->PanTumble(xoffset, yoffset);
-		m_camera->Zoom(zoffset);
+		m_cameras[0]->PanTumble(xoffset, yoffset);
+		m_cameras[0]->Zoom(zoffset);
 	//	m_camera->Rotate(xoffset, yoffset);
 	}
 	if (keys['0'])
 	{
-		m_camera->SetPosition(m_cameraPresets[0].first);
-		m_camera->SetPOI(m_cameraPresets[0].second);
+		m_cameras[0]->SetPosition(m_cameraPresets[0].first);
+		m_cameras[0]->SetPOI(m_cameraPresets[0].second);
+		m_activeCamera = 0;
 	}
 	if (keys['1'])
 	{		
-		m_camera->SetPosition(m_cameraPresets[1].first);
-		m_camera->SetPOI(m_cameraPresets[1].second);
+		m_cameras[1]->SetPosition(m_cameraPresets[1].first);
+		m_cameras[1]->SetPOI(m_cameraPresets[1].second);
+		m_activeCamera = 1;
 	}	
-	if (keys['3'])
+	if (keys['2'])
 	{
-		m_camera->SetPosition(glm::vec3(0.0f, 35.0f, 6.0f));
-		m_camera->SetPOI(glm::vec3(0.0f, 0.0f, 6.01f));
+		m_cameras[2]->SetPosition(glm::vec3(0.0f, 35.0f, 6.0f));
+		m_cameras[2]->SetPOI(glm::vec3(0.0f, 0.0f, 6.01f));
+		m_activeCamera = 2;
 	}
 }
 
@@ -210,25 +218,23 @@ void Engine::Draw()  //render start, draw scene, render end, app draw
 {
 	m_pipeline->ClearScreen();
 	
-	m_camera->SetPosition(m_cameraPresets[0].first);
-	m_camera->SetPOI(m_cameraPresets[0].second);
-	m_camera->Update();
+	m_activeCamera = 0;
 	m_pipeline->RenderStart("RenderToTextureEffect1");
 	m_scene->Draw();	
 	m_pipeline->RenderEnd();
 //	m_pipeline->RenderToScreen();
 
 	m_pipeline->ClearScreen();
-	m_camera->SetPosition(glm::vec3(0.0f, 35.0f, 6.0f));
-	m_camera->SetPOI(glm::vec3(0.0f, 0.0f, 6.01f));
-	m_camera->Update();
 
+	m_activeCamera = 2;
 	m_pipeline->RenderStart("RenderToTextureEffect2");
 	m_scene->Draw();
 	m_pipeline->RenderEnd();
 //	m_pipeline->RenderToScreen();
 	m_pipeline->RenderStart("ViewPortEffect");
 	m_pipeline->RenderToScreen();
+	//m_activeCamera = 0;
+	m_activeCamera = 0;
 
 	m_app->Draw();
 }

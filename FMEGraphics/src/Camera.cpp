@@ -15,7 +15,7 @@ glm::vec3 translateVector(glm::vec3 pos, glm::vec3 offset)
 Camera::Camera(const glm::vec3& camPosition, const glm::vec3& camPOI) : m_camPos(camPosition), m_camResetPos(camPosition), m_camPOI(camPOI), m_camResetPOI(camPOI), m_upVec(glm::vec3(0.0f, 1.0f,0.0f))
 {
 	m_zoom = glm::distance(m_camPOI, m_camPos);
-
+	m_view = glm::lookAt(m_camPos, m_camPOI, m_upVec);
 }
 
 
