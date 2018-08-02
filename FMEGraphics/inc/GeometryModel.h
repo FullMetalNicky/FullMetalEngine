@@ -15,7 +15,8 @@ namespace FME
 		enum GeometryType
 		{
 			PLANE,
-			CUBE
+			CUBE,
+			CYLINDER
 		};
 
 		class GeometryModel : public IModel

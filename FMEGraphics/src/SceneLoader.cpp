@@ -324,7 +324,12 @@ void SceneLoader::loadModels(picojson::value models)
 					{
 						GeometryModel geometryModel(GeometryType::CUBE, textureName);
 						ResourceManager::Instance()->LoadModel(std::make_shared<GeometryModel>(geometryModel), geometryName);
-					}					
+					}	
+					else if (geometryType == "Cylinder")
+					{
+						GeometryModel geometryModel(GeometryType::CYLINDER, textureName);
+						ResourceManager::Instance()->LoadModel(std::make_shared<GeometryModel>(geometryModel), geometryName);
+					}
 				}
 			}
 		}

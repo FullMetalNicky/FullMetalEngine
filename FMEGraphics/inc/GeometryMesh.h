@@ -22,6 +22,7 @@ namespace FME
 			static std::shared_ptr<GeometryMesh> GeneratePlane(const std::vector<std::string>& textureNames); // on the X-Y plane
 			static std::shared_ptr<GeometryMesh> GenerateCube(const std::vector<std::string>& textureNames);
 			static std::shared_ptr<GeometryMesh> GenerateMesh(glm::ivec3 gridDim, glm::vec3(*func)(glm::vec3, glm::vec3), const std::vector<std::string>& textureNames);
+			static std::shared_ptr<GeometryMesh> GenerateCylinder(const std::vector<std::string>& textureNames);
 
 			virtual ~GeometryMesh();
 

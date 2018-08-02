@@ -63,10 +63,10 @@ void Pipeline::AddEffect(EffectParams effect)
         ]*/
 		std::vector<ViewPortParams> params = { ViewPortParams{ "RenderToTextureEffect1",
 			glm::vec4(0.15, 0.0, 0.7, 1.0),
-			glm::vec4(0.0, 0.0, 0.7, 1.0) },
+			glm::vec4(0.3, 0.0, 0.7, 1.0) },
 			ViewPortParams{ "RenderToTextureEffect2",
 			glm::vec4(0.35, 0.0, 0.3, 1.0),
-			glm::vec4(0.7, 0.0, 0.3, 1.0) } };
+			glm::vec4(0.0, 0.0, 0.3, 1.0) } };
 		effect.effect = std::shared_ptr<ViewPortEffect>(new ViewPortEffect(m_windowSize, params));
 	}
 
