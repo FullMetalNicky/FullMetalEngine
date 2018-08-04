@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include "IComponent.h"
+#include "IKeyBoardController.h"
 #include <memory>
 
 
@@ -20,7 +21,7 @@ namespace FME
 		*  \brief A class implementing a transform component, indicating the location, orientation and scale of each IObject in a 3D world. 
 		*/
 
-		class TransformComponent : public IComponent
+		class TransformComponent : public IComponent, public IKeyBoardController
 		{
 		public:
 

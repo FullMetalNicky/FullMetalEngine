@@ -33,6 +33,11 @@ void FullMetalEngine::SetScene(const std::string& jsonPath)
 	Engine::Instance()->SetScene(jsonPath);
 }
 
+void FullMetalEngine::SetEffects(const std::string& jsonPath)
+{
+	Engine::Instance()->SetEffects(jsonPath);
+}
+
 
 void FullMetalEngine::SetFPS(double fps)
 {

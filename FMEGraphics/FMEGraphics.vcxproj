@@ -15,6 +15,7 @@
     <ClInclude Include="inc\Camera.h" />
     <ClInclude Include="inc\DecoderComponent.h" />
     <ClInclude Include="inc\DirectionalLight.h" />
+    <ClInclude Include="inc\EffectLoader.h" />
     <ClInclude Include="inc\Engine.h" />
     <ClInclude Include="inc\FullMetalEngine.h" />
     <ClInclude Include="inc\GameObject.h" />
@@ -23,7 +24,9 @@
     <ClInclude Include="inc\GroupObject.h" />
     <ClInclude Include="inc\ICamera.h" />
     <ClInclude Include="inc\IComponent.h" />
+    <ClInclude Include="inc\IController.h" />
     <ClInclude Include="inc\IEffect.h" />
+    <ClInclude Include="inc\IKeyBoardController.h" />
     <ClInclude Include="inc\IMesh.h" />
     <ClInclude Include="inc\IModel.h" />
     <ClInclude Include="inc\InputManager.h" />
@@ -47,12 +50,14 @@
     <ClInclude Include="inc\Texture2D.h" />
     <ClInclude Include="inc\Texture3D.h" />
     <ClInclude Include="inc\TransformComponent.h" />
+    <ClInclude Include="inc\ViewPortEffect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BloomEffect.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\DecoderComponent.cpp" />
     <ClCompile Include="src\DirectionalLight.cpp" />
+    <ClCompile Include="src\EffectLoader.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\FullMetalEngine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
@@ -60,6 +65,7 @@
     <ClCompile Include="src\GeometryModel.cpp" />
     <ClCompile Include="src\GroupObject.cpp" />
     <ClCompile Include="src\IEffect.cpp" />
+    <ClCompile Include="src\IKeyBoardController.cpp" />
     <ClCompile Include="src\IMesh.cpp" />
     <ClCompile Include="src\IModel.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
@@ -83,6 +89,7 @@
     <ClCompile Include="src\Texture3D.cpp" />
     <ClCompile Include="src\TransformComponent.cpp" />
     <ClCompile Include="src\Utility.cpp" />
+    <ClCompile Include="src\ViewPortEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\BloomEffect.frag" />
@@ -101,6 +108,8 @@
     <None Include="shaders\plane.vert" />
     <None Include="shaders\skybox.frag" />
     <None Include="shaders\skybox.vert" />
+    <None Include="shaders\ViewPort.frag" />
+    <None Include="shaders\ViewPort.vert" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FMEUtilities\FMEUtilities.vcxproj">
@@ -120,14 +129,14 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -163,7 +172,7 @@
     </Link>
     <Lib>
       <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64;$(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
     </Lib>
@@ -180,6 +189,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)\..\FMEUtilities\inc;$(ThirdParty)\picojson;$(ThirdParty)\assimp-master\include;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ProjectDir)inc;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -189,9 +199,10 @@
     </Link>
     <Lib>
       <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glfw3.lib;glew32s.lib;SOIL.lib;</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64; $(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ThirdParty)\soil\lib;$(ThirdParty)\glfw\lib\$(Configuration);$(ThirdParty)\glew\lib\Release\x64;$(Third_Party)\assimp-master\lib\$(Configuration)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>
       </ModuleDefinitionFile>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
     </Lib>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

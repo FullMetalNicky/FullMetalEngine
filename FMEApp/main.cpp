@@ -12,6 +12,7 @@ int main()
 	fme.SetFPS(30.0);
 	fme.SetWindowSize(2560, 1440);
 	fme.SetScene("scene.json");
+	fme.SetEffects("effects.json");
 
 	std::chrono::duration<double> diff(0.0);
 

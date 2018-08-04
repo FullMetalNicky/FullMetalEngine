@@ -2,6 +2,8 @@
 #define PIPELINE_H_
 
 #include "IEffect.h"
+#include "SceneObject.h"
+
 #include <map>
 
 namespace FME
@@ -12,25 +14,34 @@ namespace FME
 		*  \brief A class that should act as the manager of IEffects in the engine.
 		*/
 
+		struct EffectParams
+		{
+			std::shared_ptr<IEffect> effect;
+			std::string type;
+			std::string Id;
+			int activeCamera;
+			bool draw;
+			//std::vector<ViewPortParams> viewPortParams;
+		};
+
 		class Pipeline
 		{
 		public:
-			Pipeline();
+			Pipeline(const glm::ivec2 & windowSize);
 			virtual~Pipeline();
 
 			virtual void Update();
-			virtual void RenderToScreen();
-			virtual void RenderStart(const std::string& currentEffectName);
-			virtual void RenderEnd();
 			virtual void ClearScreen();
+			virtual void Render(const std::shared_ptr<SceneObject>& scene);
 
-			void AddEffect(std::shared_ptr<IEffect> effect, const std::string& effectName);
+			void AddEffect(EffectParams effect);
 
 
 		protected:
 
 			std::string m_currentEffect;
-			std::map<std::string, std::shared_ptr<IEffect>> m_effects;
+			std::vector<EffectParams> m_effects;
+			glm::ivec2 m_windowSize;
 		};
 	}
 }

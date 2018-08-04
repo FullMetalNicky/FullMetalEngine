@@ -17,6 +17,7 @@ namespace FME
 
 			void SetWindowSize(int windowWidth, int windowHeight);
 			void SetScene(const std::string& jsonPath);
+			void SetEffects(const std::string& jsonPath);
 
 			void SetFPS(double fps);
 		};

@@ -152,6 +152,26 @@ std::shared_ptr<GeometryMesh> GeometryMesh::GenerateMesh(glm::ivec3 gridDim, glm
 }
 
 
+static glm::vec3 cylinderFunc(glm::vec3 gridElm, glm::vec3 gridDim)
+{
+	glm::vec3 gridCenter(0.5f);
+	glm::vec3 res;
+	
+	float longitude = glm::radians(360.0f);
+	res.x = cos(longitude * (gridElm.x - gridCenter.x));
+	res.y = sin(longitude * (gridElm.x - gridCenter.x));
+	res.z = (gridElm.y - gridCenter.y);
+
+	return res;
+}
+
+std::shared_ptr<GeometryMesh> GeometryMesh::GenerateCylinder(const std::vector<std::string>& textureNames)
+{
+	return GenerateMesh(glm::ivec3(20, 20, 1), &cylinderFunc, textureNames);
+}
+
+
+
 GeometryMesh::~GeometryMesh()
 {
 

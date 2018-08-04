@@ -33,6 +33,11 @@ GeometryModel::GeometryModel(const GeometryType& type, const glm::vec4& color)
 		m_meshes.push_back(GeometryMesh::GenerateCube(textureNames));
 		m_shaderName = "cube";
 	}
+	else if (type == GeometryType::CYLINDER)
+	{
+		m_meshes.push_back(GeometryMesh::GenerateCylinder(textureNames));
+		m_shaderName = "plane";
+	}
 }
 
 GeometryModel::GeometryModel(const GeometryType& type, const std::string& textureName)
@@ -51,6 +56,11 @@ GeometryModel::GeometryModel(const GeometryType& type, const std::string& textur
 	{
 		m_meshes.push_back(GeometryMesh::GenerateCube(textureNames));
 		m_shaderName = "cube";
+	}
+	else if (type == GeometryType::CYLINDER)
+	{
+		m_meshes.push_back(GeometryMesh::GenerateCylinder(textureNames));
+		m_shaderName = "plane";
 	}
 }
 

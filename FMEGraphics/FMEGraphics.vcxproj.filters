@@ -126,6 +126,18 @@
     <ClInclude Include="inc\FullMetalEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IKeyBoardController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ViewPortEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\EffectLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -230,6 +242,15 @@
     <ClCompile Include="src\FullMetalEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\IKeyBoardController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ViewPortEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EffectLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\obj.frag">
@@ -278,6 +299,12 @@
       <Filter>shaders</Filter>
     </None>
     <None Include="shaders\RenderToTextureEffect.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\ViewPort.vert">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="shaders\ViewPort.frag">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

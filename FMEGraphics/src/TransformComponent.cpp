@@ -1,6 +1,6 @@
 #include "TransformComponent.h"
 #include <glm/gtc/matrix_transform.hpp>
-
+#include "Engine.h"
 
 using namespace FME::Graphics;
 
@@ -22,7 +22,23 @@ void TransformComponent::ResetTransform()
 
 void TransformComponent::Update()
 {
-	if (!m_fixedTransform) m_transform = Transform{ m_translation, m_rotation, m_scale };
+	if (!m_fixedTransform)
+	{
+		Transform transR = Engine::Instance()->GetControllerUpdate('R');
+		Transform transL = Engine::Instance()->GetControllerUpdate('L');
+		m_rotation += transR.Rotation + transL.Rotation;
+		m_translation += transR.Translation + transL.Translation;
+		m_scale += transR.Scale + transL.Scale;
+		m_transform = Transform{ m_translation, m_rotation, m_scale };
+
+		for (int i = 0; i < m_keys.size(); ++i)
+		{
+			Transform trans = Engine::Instance()->GetControllerUpdate(m_keys[i]);
+			m_rotation += trans.Rotation;
+			m_translation += trans.Translation;
+			m_scale += trans.Scale;
+		}
+	}
 }
 
 glm::mat4 TransformComponent::GetModelMatrix() const

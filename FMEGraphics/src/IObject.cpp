@@ -14,10 +14,10 @@ std::shared_ptr<TransformComponent> IObject::GetTransformComponent()
 	{
 		if ("Transform" == m_components[i]->GetType())
 		{
-
 			return std::dynamic_pointer_cast<TransformComponent>(m_components[i]);
 		}
 	}
+	return nullptr;
 };
 
 void IObject::AddComponent(std::shared_ptr<IComponent> component)
