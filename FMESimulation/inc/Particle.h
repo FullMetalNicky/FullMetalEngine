@@ -23,6 +23,7 @@ namespace FME
 			void SetDumping(float dumping) { m_dumping = dumping; };
 
 
+			float GetMass() const;
 			float GetInverseMass() const { return m_inverseMass; };
 			glm::vec3 GetPosition() const { return m_position; };
 			glm::vec3 GetVelocity() const { return m_velocity; };
