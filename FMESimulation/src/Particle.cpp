@@ -24,3 +24,9 @@ void Particle::AddForce(const glm::vec3& force)
 {
 	m_forceAccumulator = m_forceAccumulator + force;
 }
+
+float Particle::GetMass() const
+{
+	if (m_inverseMass > 0.0f) return 1.0f / m_inverseMass;
+	else return LLONG_MAX;
+}

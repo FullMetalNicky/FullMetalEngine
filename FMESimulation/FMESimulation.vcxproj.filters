@@ -33,6 +33,12 @@
     <ClInclude Include="inc\IParticleForce.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\ParticleGravity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleDrag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -42,6 +48,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ParticleForceRegistry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleGravity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleDrag.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
