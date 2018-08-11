@@ -16,9 +16,9 @@ namespace FME
 
 			virtual void Update(float deltaTime);
 
-		protected:
+			float CalculateSeparatingVelocity() const;
 
-			float calculateSeparatingVelocity() const;
+			float GetPenetration() const { return m_penetration; };
 
 		private:
 

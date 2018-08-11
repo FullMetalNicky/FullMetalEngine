@@ -40,7 +40,7 @@ void ParticleContact::resolveInterpenetration(float deltaTime)
 }
 
 
-float ParticleContact::calculateSeparatingVelocity() const
+float ParticleContact::CalculateSeparatingVelocity() const
 {
 	glm::vec3 relativeVelocity = m_particles[0]->GetVelocity();
 
@@ -55,7 +55,7 @@ float ParticleContact::calculateSeparatingVelocity() const
 
 void ParticleContact::resolveVelocity(float deltaTime)
 {
-	float separatingVelocity = calculateSeparatingVelocity();
+	float separatingVelocity = CalculateSeparatingVelocity();
 	float totalInverseMass = m_particles[0]->GetInverseMass();
 
 	if (m_particles[1])
@@ -67,6 +67,19 @@ void ParticleContact::resolveVelocity(float deltaTime)
 	if ((separatingVelocity <= 0.0f) && (totalInverseMass > 0.0f))
 	{
 		float newSeparatingVelocity = -separatingVelocity * m_restitution;
+
+		glm::vec3 accCausedVelocity = m_particles[0]->GetAcceleration();
+		if (m_particles[1])
+		{
+			accCausedVelocity = accCausedVelocity - m_particles[1]->GetAcceleration();
+		}
+		float accCausedSepVelocity = glm::dot(accCausedVelocity, m_contactNormal) * deltaTime;
+		if (accCausedSepVelocity < 0.0f)
+		{
+			newSeparatingVelocity = newSeparatingVelocity + m_restitution * accCausedSepVelocity;
+			if (newSeparatingVelocity < 0.0f) newSeparatingVelocity = 0.0f;
+		}
+
 		float deltaVelocity = newSeparatingVelocity - separatingVelocity;
 
 		float impulse = deltaVelocity / totalInverseMass;
