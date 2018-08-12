@@ -92,3 +92,22 @@ void ParticleContact::resolveVelocity(float deltaTime)
 		}
 	}
 }
+
+std::shared_ptr<Particle> ParticleContact::GetParticle(unsigned int index) const
+{
+	if (m_particles.size() > index) return m_particles[index];
+	else return nullptr;
+}
+
+
+void ParticleContact::SetParticle(std::shared_ptr<Particle> particle, unsigned int index)
+{
+	if (m_particles.size() > index)
+	{
+		m_particles[index] = particle;
+	}
+	else
+	{
+		m_particles.insert(m_particles.begin() + index, particle);
+	}
+}

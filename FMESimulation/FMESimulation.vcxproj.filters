@@ -51,6 +51,21 @@
     <ClInclude Include="inc\ParticleContactResolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\IParticleImpulse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleLink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\IParticleConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleCable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\ParticleRod.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -78,6 +93,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\ParticleContactResolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticlelLink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleCable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleRod.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
