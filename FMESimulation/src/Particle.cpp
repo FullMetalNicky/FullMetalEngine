@@ -16,7 +16,12 @@ void Particle::Update(float deltaTime)
 	m_velocity = m_velocity + m_acceleration * deltaTime;
 	m_velocity = m_velocity * powf(m_dumping, deltaTime);
 
-	//clearForces?
+	//ClearForces()?
+	//m_forceAccumulator = glm::vec3(0.0f);
+}
+
+void Particle::ClearForces()
+{
 	m_forceAccumulator = glm::vec3(0.0f);
 }
 

@@ -15,6 +15,8 @@ namespace FME
 
 			void AddForce(const glm::vec3& force);
 
+			void ClearForces();
+
 			void SetInverseMass(float inverseMass) { m_inverseMass = inverseMass; };
 			void SetMass(float mass) { m_inverseMass = 1.0f / mass; };
 			void SetPosition(const glm::vec3& position) { m_position = position; };
