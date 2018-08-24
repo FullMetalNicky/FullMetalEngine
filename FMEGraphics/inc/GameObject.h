@@ -21,11 +21,9 @@ namespace FME
 			virtual ~GameObject() {};
 
 			virtual void Draw();
+			
 			virtual void Update(double deltaTime);
-
-			//virtual void SetModelType(GameType type) { m_model->SetGameType(type); };
-
-			//virtual GameType GetModelType() const { return m_model->GetGameType(); };
+		
 			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return std::map<std::string, std::shared_ptr<IObject>>(); };
 
 		private:
