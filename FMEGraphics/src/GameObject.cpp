@@ -28,7 +28,7 @@ void GameObject::Draw()
 			view = glm::mat4(1.0f);
 			proj = glm::mat4(1.0f);
 		}
-		glm::mat4 model = GetTransformComponent()->GetModelMatrix();;
+		glm::mat4 model = std::dynamic_pointer_cast<TransformComponent>(GetComponentByType("Transform"))->GetModelMatrix();;
 		glm::mat4 modelViewProj = proj * view * model;
 		glm::mat4 transInvModel = transpose(inverse(model));
 		FME::Graphics::ResourceManager::Instance()->GetShader(shader).Use();

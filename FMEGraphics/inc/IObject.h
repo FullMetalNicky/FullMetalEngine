@@ -26,8 +26,6 @@ namespace FME
 
 			virtual std::shared_ptr<IComponent> GetComponentByType(const std::string& type);
 
-			virtual std::shared_ptr<TransformComponent> GetTransformComponent();
-
 			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return std::map<std::string, std::shared_ptr<IObject>>(); };
 
 			std::string GetName() const { return m_name; };

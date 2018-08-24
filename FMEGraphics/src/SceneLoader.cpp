@@ -415,7 +415,7 @@ std::shared_ptr<IObject> SceneLoader::loadGroupObject(picojson::value groupObjec
 	}
 
 	GroupObject groupObject(goName);
-	groupObject.GetTransformComponent()->SetFixedTransform(trans);
+	std::dynamic_pointer_cast<TransformComponent>(groupObject.GetComponentByType("Transform"))->SetFixedTransform(trans);
 
 	for (picojson::value::object::const_iterator it = arrObj.begin(); it != arrObj.end(); ++it)
 	{
@@ -426,7 +426,7 @@ std::shared_ptr<IObject> SceneLoader::loadGroupObject(picojson::value groupObjec
 			for (int i = 0; i < GOarr.size(); ++i)
 			{
 				std::shared_ptr<GameObject> go = loadGameObject(GOarr[i]);
-				go->GetTransformComponent()->SetParent(groupObject.GetTransformComponent());
+				std::dynamic_pointer_cast<TransformComponent>(go->GetComponentByType("Transform"))->SetParent(std::dynamic_pointer_cast<TransformComponent>(groupObject.GetComponentByType("Transform")));
 				groupObject.AddChild(go->GetName(), go);
 			}
 		}
@@ -481,8 +481,8 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 			if ("2D" == modelType) rc.SetGameType(GameType::RENDER2D);
 			go.AddComponent(std::make_shared<RenderComponent>(rc));
 		}
-		if (!fixed) go.GetTransformComponent()->SetTransform(trans);
-		else go.GetTransformComponent()->SetFixedTransform(trans);
+		if (!fixed) std::dynamic_pointer_cast<TransformComponent>(go.GetComponentByType("Transform"))->SetTransform(trans);
+		else std::dynamic_pointer_cast<TransformComponent>(go.GetComponentByType("Transform"))->SetFixedTransform(trans);
 		if (lights.size())
 		{
 			LightComponent lc(lights);
