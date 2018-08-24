@@ -8,11 +8,11 @@ namespace FME
 {
 	namespace Graphics
 	{
-		/*enum GameType
+		enum GameType
 		{
 			RENDER2D,
 			RENDER3D
-		};*/
+		};
 
 
 		/** \class RenderComponent

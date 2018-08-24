@@ -7,6 +7,7 @@ RenderComponent::RenderComponent(std::shared_ptr<IModel> model)
 {
 	m_type = "Render";
 	m_model = model;
+	m_gameType = GameType::RENDER3D;
 }
 
 

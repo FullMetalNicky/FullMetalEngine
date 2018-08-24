@@ -474,13 +474,13 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 				lights = loadLights(gameObject.get("Light"));
 			}
 		}
-		GameObject go(ResourceManager::Instance()->GetModel(modelName), goName);
+		GameObject go(goName);
 		if (modelName.size())
 		{
 			RenderComponent rc(ResourceManager::Instance()->GetModel(modelName));
+			if ("2D" == modelType) rc.SetGameType(GameType::RENDER2D);
 			go.AddComponent(std::make_shared<RenderComponent>(rc));
 		}
-		if ("2D" == modelType) go.SetModelType(GameType::RENDER2D);
 		if (!fixed) go.GetTransformComponent()->SetTransform(trans);
 		else go.GetTransformComponent()->SetFixedTransform(trans);
 		if (lights.size())

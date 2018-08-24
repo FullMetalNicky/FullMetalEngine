@@ -19,7 +19,6 @@ using namespace FME::Graphics;
 OBJModel::OBJModel(const std::string& objPath)
 {
 	m_shaderName = "obj";
-	m_gameType = RENDER3D;
 
 	loadModel(objPath);
 }

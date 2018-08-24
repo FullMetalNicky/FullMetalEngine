@@ -12,14 +12,12 @@ GeometryModel::GeometryModel(const std::vector<std::shared_ptr<IMesh>>& meshes, 
 	m_meshes = meshes;
 	m_shaderName = shaderNames;
 	m_instancing = instancing;
-	m_gameType = RENDER3D;
 
 	m_color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
 }
 
 GeometryModel::GeometryModel(const GeometryType& type, const glm::vec4& color)
 {
-	m_gameType = RENDER3D;
 	std::vector<std::string> textureNames;
 	m_color = color;
 
@@ -42,7 +40,6 @@ GeometryModel::GeometryModel(const GeometryType& type, const glm::vec4& color)
 
 GeometryModel::GeometryModel(const GeometryType& type, const std::string& textureName)
 {
-	m_gameType = RENDER3D;
 	std::vector<std::string> textureNames;
 	textureNames.push_back(textureName);
 	m_color = glm::vec4(0.0f, 0.0f, 0.0f, 0.0f);
