@@ -39,7 +39,7 @@ void GroupObject::RemoveChild(std::string childName)
 	m_children.erase(childName);
 }
 
-void GroupObject::AddChild(std::string childName, std::shared_ptr<GameObject> object)
+void GroupObject::AddChild(std::string childName, std::shared_ptr<IObject> object)
 {
 	m_children[childName] = object;
 }

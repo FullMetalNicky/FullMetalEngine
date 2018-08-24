@@ -26,7 +26,7 @@ namespace FME
 			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return m_children; };
 
 			void RemoveChild(std::string childName);
-			void AddChild(std::string childName, std::shared_ptr<GameObject> object);
+			void AddChild(std::string childName, std::shared_ptr<IObject> object);
 			void SetParent(std::shared_ptr<IObject> parent);
 
 

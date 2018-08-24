@@ -24,10 +24,20 @@ namespace FME
 			
 			virtual void Update(double deltaTime);
 		
-			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return std::map<std::string, std::shared_ptr<IObject>>(); };
+			virtual std::map<std::string, std::shared_ptr<IObject>>  GetChildren() { return m_children; };
+
+			virtual void RemoveChild(std::string childName);
+
+			virtual void AddChild(std::string childName, std::shared_ptr<IObject> object);
+
+			virtual void SetParent(std::shared_ptr<IObject> parent);
+
 
 		private:
 
+			std::map<std::string, std::shared_ptr<IObject>> m_children;
+
+			std::shared_ptr<IObject> m_parent;
 		};
 	}
 }

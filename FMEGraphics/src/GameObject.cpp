@@ -63,3 +63,19 @@ void GameObject::Update(double deltaTime)
 		m_components[i]->Update();
 	}
 }
+
+
+void GameObject::RemoveChild(std::string childName)
+{
+	m_children.erase(childName);
+}
+
+void GameObject::AddChild(std::string childName, std::shared_ptr<IObject> object)
+{
+	m_children[childName] = object;
+}
+
+void GameObject::SetParent(std::shared_ptr<IObject> parent)
+{
+	m_parent = parent;
+}

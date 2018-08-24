@@ -22,6 +22,7 @@ namespace FME
 			virtual ~IObject() {};
 
 			virtual void Draw() = 0;
+
 			virtual void Update(double deltaTime) = 0;
 
 			virtual std::shared_ptr<IComponent> GetComponentByType(const std::string& type);
