@@ -1,6 +1,5 @@
 #include "SceneObject.h"
 #include "GameObject.h"
-#include "GroupObject.h"
 #include "SkyboxModel.h"
 #include "GeometryModel.h"
 #include "OBJModel.h"

@@ -54,6 +54,10 @@ void GameObject::Draw()
 			m_components[i]->Draw();		
 		}
 	}
+	for (std::map<std::string, std::shared_ptr<GameObject>>::iterator it = m_children.begin(); it != m_children.end(); ++it)
+	{
+		it->second->Draw();
+	}
 }
 
 
@@ -63,6 +67,11 @@ void GameObject::Update(double deltaTime)
 	for (int i = 0; i < m_components.size(); ++i)
 	{
 		m_components[i]->Update();
+	}
+
+	for (std::map<std::string, std::shared_ptr<GameObject>>::iterator it = m_children.begin(); it != m_children.end(); ++it)
+	{
+		it->second->Update(deltaTime);
 	}
 }
 

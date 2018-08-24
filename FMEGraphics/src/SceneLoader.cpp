@@ -9,7 +9,6 @@
 #include "SkyboxModel.h"
 #include "GeometryModel.h"
 #include "GameObject.h"
-#include "GroupObject.h"
 #include "Engine.h"
 #include "LightComponent.h"
 #include "LightObject.h"
@@ -414,7 +413,7 @@ std::shared_ptr<GameObject> SceneLoader::loadGroupObject(picojson::value groupOb
 		}
 	}
 
-	GroupObject groupObject(goName);
+	GameObject groupObject(goName);
 	std::dynamic_pointer_cast<TransformComponent>(groupObject.GetComponentByType("Transform"))->SetFixedTransform(trans);
 
 	for (picojson::value::object::const_iterator it = arrObj.begin(); it != arrObj.end(); ++it)
@@ -432,7 +431,7 @@ std::shared_ptr<GameObject> SceneLoader::loadGroupObject(picojson::value groupOb
 		}
 	}
 
-	return std::make_shared<GroupObject>(groupObject);
+	return std::make_shared<GameObject>(groupObject);
 }
 
 std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObject)

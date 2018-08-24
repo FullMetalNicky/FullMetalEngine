@@ -21,7 +21,6 @@
     <ClInclude Include="inc\GameObject.h" />
     <ClInclude Include="inc\GeometryMesh.h" />
     <ClInclude Include="inc\GeometryModel.h" />
-    <ClInclude Include="inc\GroupObject.h" />
     <ClInclude Include="inc\ICamera.h" />
     <ClInclude Include="inc\IComponent.h" />
     <ClInclude Include="inc\IController.h" />
@@ -63,7 +62,6 @@
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GeometryMesh.cpp" />
     <ClCompile Include="src\GeometryModel.cpp" />
-    <ClCompile Include="src\GroupObject.cpp" />
     <ClCompile Include="src\IEffect.cpp" />
     <ClCompile Include="src\IKeyBoardController.cpp" />
     <ClCompile Include="src\IMesh.cpp" />

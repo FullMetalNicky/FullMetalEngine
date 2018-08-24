@@ -1,7 +1,7 @@
 #ifndef ROOTOBJECT_H_
 #define ROOTOBJECT_H_
 
-#include "GroupObject.h"
+#include "GameObject.h"
 
 namespace FME
 {
@@ -19,7 +19,7 @@ namespace FME
 
 		
 		private:
-			std::vector<std::shared_ptr<GroupObject>> m_children;
+			std::vector<std::shared_ptr<GameObject>> m_children;
 		};
 	}
 }
