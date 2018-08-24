@@ -18,7 +18,6 @@ SkyboxModel::SkyboxModel(const std::string& textureName)
 	textureNames.push_back(textureName);
 
 	m_meshes.push_back(GeometryMesh::GenerateCube(textureNames));
-	m_gameType = RENDER3D;
 }
 
 

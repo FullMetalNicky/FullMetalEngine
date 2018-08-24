@@ -21,7 +21,6 @@
     <ClInclude Include="inc\GameObject.h" />
     <ClInclude Include="inc\GeometryMesh.h" />
     <ClInclude Include="inc\GeometryModel.h" />
-    <ClInclude Include="inc\GroupObject.h" />
     <ClInclude Include="inc\ICamera.h" />
     <ClInclude Include="inc\IComponent.h" />
     <ClInclude Include="inc\IController.h" />
@@ -30,10 +29,10 @@
     <ClInclude Include="inc\IMesh.h" />
     <ClInclude Include="inc\IModel.h" />
     <ClInclude Include="inc\InputManager.h" />
-    <ClInclude Include="inc\IObject.h" />
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\LightComponent.h" />
     <ClInclude Include="inc\LightObject.h" />
+    <ClInclude Include="inc\RenderComponent.h" />
     <ClInclude Include="inc\RenderToTextureEffect.h" />
     <ClInclude Include="inc\OBJMesh.h" />
     <ClInclude Include="inc\OBJModel.h" />
@@ -63,15 +62,14 @@
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GeometryMesh.cpp" />
     <ClCompile Include="src\GeometryModel.cpp" />
-    <ClCompile Include="src\GroupObject.cpp" />
     <ClCompile Include="src\IEffect.cpp" />
     <ClCompile Include="src\IKeyBoardController.cpp" />
     <ClCompile Include="src\IMesh.cpp" />
     <ClCompile Include="src\IModel.cpp" />
     <ClCompile Include="src\InputManager.cpp" />
-    <ClCompile Include="src\IObject.cpp" />
     <ClCompile Include="src\LightComponent.cpp" />
     <ClCompile Include="src\LightObject.cpp" />
+    <ClCompile Include="src\RenderComponent.cpp" />
     <ClCompile Include="src\RenderToTextureEffect.cpp" />
     <ClCompile Include="src\OBJMesh.cpp" />
     <ClCompile Include="src\OBJModel.cpp" />

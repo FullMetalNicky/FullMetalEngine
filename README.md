@@ -2,6 +2,7 @@
 
 FullMetalEngine is a wannabe game engine in its early infancy phase. Currently it contains a very basic implementation of a rendering engine, some utilities, and soon to come is a small physics simulation component. The development of the engine started at mid 2017, and since then I lazily work on it on the weekends. 
 Huge props to this [guy](https://learnopengl.com/), who taught me most of what I know about OpenGL and inspired me when writing this engine. 
+![Engine Demp](https://www.dropbox.com/s/obopp8h84qen31d/jump.JPG?raw=1)
 
 ## Future features!
   - Shadow rendering? Hmm...maybe.  
@@ -14,7 +15,7 @@ Huge props to this [guy](https://learnopengl.com/), who taught me most of what I
   - A project containing a simple usage example - I will add a few more in the future, and clarify stuff on the wiki page
   
 ## Implementation
-![Engine UML](https://www.dropbox.com/s/fcrkp7m6zitiiu9/UML.JPG?raw=1)
+![Engine UML](https://www.dropbox.com/s/kozetn7mu2ts0qv/UML.JPG?raw=1)
 It migh not be 100% up-to-date with all changes, but it should give you a clue about how stuff work in my twisted mind. Loading scenes can be done using a .json file, using the format you may find in scene.json. Right now behaviors are pretty much hard-coded, but I intend to extend it to user-provided callbacks or scripts. 
   
 ## Installation

@@ -48,13 +48,7 @@
     <ClInclude Include="inc\Pipeline.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\IObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="inc\GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\GroupObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\RootObject.h">
@@ -138,6 +132,9 @@
     <ClInclude Include="inc\EffectLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\RenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -167,13 +164,7 @@
     <ClCompile Include="src\Pipeline.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\IObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GroupObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\RootObject.cpp">
@@ -249,6 +240,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EffectLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

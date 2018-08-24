@@ -88,19 +88,37 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\IParticleConstraint.h" />
     <ClInclude Include="inc\IParticleForce.h" />
+    <ClInclude Include="inc\IParticleImpulse.h" />
     <ClInclude Include="inc\Particle.h" />
+    <ClInclude Include="inc\ParticleBuoyancy.h" />
+    <ClInclude Include="inc\ParticleCable.h" />
+    <ClInclude Include="inc\ParticleContact.h" />
+    <ClInclude Include="inc\ParticleContactResolver.h" />
     <ClInclude Include="inc\ParticleDrag.h" />
     <ClInclude Include="inc\ParticleForceRegistry.h" />
     <ClInclude Include="inc\ParticleGravity.h" />
+    <ClInclude Include="inc\ParticleLink.h" />
+    <ClInclude Include="inc\ParticleRod.h" />
+    <ClInclude Include="inc\ParticleSpring.h" />
+    <ClInclude Include="inc\ParticleWorld.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Particle.cpp" />
+    <ClCompile Include="src\ParticleBuoyancy.cpp" />
+    <ClCompile Include="src\ParticleCable.cpp" />
+    <ClCompile Include="src\ParticleContact.cpp" />
+    <ClCompile Include="src\ParticleContactResolver.cpp" />
     <ClCompile Include="src\ParticleDrag.cpp" />
     <ClCompile Include="src\ParticleForceRegistry.cpp" />
     <ClCompile Include="src\ParticleGravity.cpp" />
+    <ClCompile Include="src\ParticlelLink.cpp" />
+    <ClCompile Include="src\ParticleRod.cpp" />
+    <ClCompile Include="src\ParticleSpring.cpp" />
+    <ClCompile Include="src\ParticleWorld.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
