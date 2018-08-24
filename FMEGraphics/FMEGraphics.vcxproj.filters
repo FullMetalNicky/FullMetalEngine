@@ -138,6 +138,9 @@
     <ClInclude Include="inc\EffectLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\RenderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Shader.cpp">
@@ -249,6 +252,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\EffectLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RenderComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

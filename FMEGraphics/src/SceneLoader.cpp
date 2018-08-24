@@ -17,6 +17,7 @@
 #include "PointLight.h"
 #include "SpotLight.h"
 #include <experimental/filesystem>
+#include "RenderComponent.h"
 
 
 #ifdef _DEBUG
@@ -474,6 +475,11 @@ std::shared_ptr<GameObject> SceneLoader::loadGameObject(picojson::value gameObje
 			}
 		}
 		GameObject go(ResourceManager::Instance()->GetModel(modelName), goName);
+		if (modelName.size())
+		{
+			RenderComponent rc(ResourceManager::Instance()->GetModel(modelName));
+			go.AddComponent(std::make_shared<RenderComponent>(rc));
+		}
 		if ("2D" == modelType) go.SetModelType(GameType::RENDER2D);
 		if (!fixed) go.GetTransformComponent()->SetTransform(trans);
 		else go.GetTransformComponent()->SetFixedTransform(trans);

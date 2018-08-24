@@ -34,6 +34,7 @@
     <ClInclude Include="inc\ITexture.h" />
     <ClInclude Include="inc\LightComponent.h" />
     <ClInclude Include="inc\LightObject.h" />
+    <ClInclude Include="inc\RenderComponent.h" />
     <ClInclude Include="inc\RenderToTextureEffect.h" />
     <ClInclude Include="inc\OBJMesh.h" />
     <ClInclude Include="inc\OBJModel.h" />
@@ -72,6 +73,7 @@
     <ClCompile Include="src\IObject.cpp" />
     <ClCompile Include="src\LightComponent.cpp" />
     <ClCompile Include="src\LightObject.cpp" />
+    <ClCompile Include="src\RenderComponent.cpp" />
     <ClCompile Include="src\RenderToTextureEffect.cpp" />
     <ClCompile Include="src\OBJMesh.cpp" />
     <ClCompile Include="src\OBJModel.cpp" />
