@@ -1,7 +1,8 @@
 #ifndef LIGHTOBJECT_H_
 #define LIGHTOBJECT_H_
 
-#include "IObject.h"
+#include "GameObject.h"
+#include <glm/glm.hpp>
 
 
 namespace FME
@@ -22,7 +23,7 @@ namespace FME
 		};
 
 
-		class LightObject : public IObject
+		class LightObject : public GameObject
 		{
 		public:
 			LightObject();

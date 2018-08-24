@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <memory>
-#include <IObject.h>
+#include <GameObject.h>
 
 namespace FME
 {
@@ -25,12 +25,12 @@ namespace FME
 			void Update(double deltaTime);
 			void Draw();
 
-			std::vector<std::vector<std::shared_ptr<IObject>>> GetChildren() { return m_children; };
+			std::vector<std::vector<std::shared_ptr<GameObject>>> GetChildren() { return m_children; };
 
 		private:
 
 			unsigned int m_gameLevel;
-			std::vector<std::vector<std::shared_ptr<IObject>>> m_children;
+			std::vector<std::vector<std::shared_ptr<GameObject>>> m_children;
 		};
 	}
 }

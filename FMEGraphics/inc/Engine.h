@@ -5,6 +5,7 @@
 #include "OpenGLWindow.h"
 #include "SceneObject.h"
 #include "DecoderComponent.h"
+#include "TransformComponent.h"
 #include <memory>
 #include "Pipeline.h"
 

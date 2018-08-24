@@ -341,7 +341,7 @@ void SceneLoader::loadModels(picojson::value models)
 	}
 }
 
-void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>& children)
+void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<GameObject>>>& children)
 {
 	picojson::value::object& rootObj = m_root.get<picojson::object>();
 	if (m_root.contains("Levels"))
@@ -350,7 +350,7 @@ void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>&
 		if (levels.is<picojson::array>())
 		{
 			picojson::array arr = levels.get<picojson::array>();
-			children = std::vector<std::vector<std::shared_ptr<IObject>>>(arr.size(), std::vector<std::shared_ptr<IObject>>());
+			children = std::vector<std::vector<std::shared_ptr<GameObject>>>(arr.size(), std::vector<std::shared_ptr<GameObject>>());
 			std::vector<std::pair<glm::vec3, glm::vec3>> cameraPresets(arr.size(), std::pair<glm::vec3, glm::vec3>());
 
 			for (int level = 0; level < arr.size(); ++level)
@@ -368,7 +368,7 @@ void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>&
 					picojson::array GOarr = gameObjects.get<picojson::array>();
 					for (int i = 0; i < GOarr.size(); ++i)
 					{
-						std::shared_ptr<IObject> go = loadGameObject(GOarr[i]);
+						std::shared_ptr<GameObject> go = loadGameObject(GOarr[i]);
 						children[level].push_back(go);
 					}
 				}
@@ -378,7 +378,7 @@ void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>&
 					picojson::array GOarr = gameObjects.get<picojson::array>();
 					for (int i = 0; i < GOarr.size(); ++i)
 					{
-						std::shared_ptr<IObject> go = loadGroupObject(GOarr[i]);
+						std::shared_ptr<GameObject> go = loadGroupObject(GOarr[i]);
 						children[level].push_back(go);
 					}
 				}
@@ -388,7 +388,7 @@ void SceneLoader::LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>&
 	}
 }
 
-std::shared_ptr<IObject> SceneLoader::loadGroupObject(picojson::value groupObjectVal)
+std::shared_ptr<GameObject> SceneLoader::loadGroupObject(picojson::value groupObjectVal)
 {
 	picojson::value::object& arrObj = groupObjectVal.get<picojson::object>();
 

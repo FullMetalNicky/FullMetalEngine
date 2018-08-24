@@ -3,9 +3,9 @@
 
 #include <string>
 #include "picojson.h"
-#include "IObject.h"
 #include "GameObject.h"
 #include "LightObject.h"
+#include "TransformComponent.h" 
 #include <memory>
 
 namespace FME
@@ -23,7 +23,7 @@ namespace FME
 
 			SceneLoader(const std::string& JSONPath); //called only once in the beginning of the app, loading the scene graph
 			void LoadAssets();
-			void LoadLevels(std::vector<std::vector<std::shared_ptr<IObject>>>& children);
+			void LoadLevels(std::vector<std::vector<std::shared_ptr<GameObject>>>& children);
 
 		private:
 
@@ -32,7 +32,7 @@ namespace FME
 			void loadModels(picojson::value models);
 
 			std::shared_ptr<GameObject> loadGameObject(picojson::value gameObject);
-			std::shared_ptr<IObject> loadGroupObject(picojson::value groupObject);
+			std::shared_ptr<GameObject> loadGroupObject(picojson::value groupObject);
 
 
 			Transform loadTransform(picojson::value transform);

@@ -11,7 +11,7 @@ namespace FME
 		*  \brief A class that implements the root node in a scengraph
 		*/
 
-		class RootObject : public IObject
+		class RootObject : public GameObject
 		{
 		public:
 			virtual void Draw();
