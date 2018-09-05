@@ -86,7 +86,6 @@
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\Texture3D.cpp" />
     <ClCompile Include="src\TransformComponent.cpp" />
-    <ClCompile Include="src\Utility.cpp" />
     <ClCompile Include="src\ViewPortEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
