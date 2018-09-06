@@ -34,9 +34,12 @@ FullMetalEngine depends on the following libraries:
 
 - [SOIL](https://www.lonesock.net/soil.html) - super old library for image loading.
 
-You may download them and compile them yourself, or you can use the pre-compiled (windows) binaries. 
-I will make a proper CMake file for it soon. Currently I just place all the dependecies in one folder, and have an enviromental variable called "Third_Party" pointing at it. It's still quite a mess, so I advise you guys to wait until I sort it out. 
-I tried to make it as cross-platform as possible. It was tested on Windows 10, and I managed to compile it using Eclipse on Ubuntu 18.04, but since my VM sucks I can't really test it.
+I advise you to download and compile these yourself, because pre-compiled versions are not necessarily the latest. 
+For Windows 10, VS build:
+  - Currently I just place all the dependecies in one folder, and have an enviromental variable called "Third_Party" pointing at it. 
+For Ubuntu 18.04, Eclipse build:
+  - I have added project files for Eclipse, so you should be able to compile it without too much hassle, if you have all the dependencies somehwere in your /usr directories.
+I will make a proper CMake file for it soon.
 
 ## Development
 Want to contribute? Great! Send me 6-pack of diet coke :)
