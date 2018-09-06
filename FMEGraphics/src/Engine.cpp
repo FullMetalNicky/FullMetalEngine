@@ -1,3 +1,4 @@
+#define GLM_ENABLE_EXPERIMENTAL
 #include "Engine.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
