@@ -48,7 +48,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(PCL_ROOT)\3rdParty\Eigen\eigen3\;$(PCL_ROOT)\3rdParty\Boost\include\boost-1_56;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -69,7 +69,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(PCL_ROOT)\3rdParty\Eigen\eigen3\;$(PCL_ROOT)\3rdParty\Boost\include\boost-1_56;$(ThirdParty)\soil\src;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)\inc;$(ThirdParty)\glm;$(ThirdParty)\glm\glm\gtx;$(ThirdParty)\glfw\include;$(ThirdParty)\glew\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
